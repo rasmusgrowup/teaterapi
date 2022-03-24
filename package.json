@@ -1,0 +1,23 @@
+{
+  "name": "mariasrum",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@u-wave/react-vimeo": "^0.9.5",
+    "@vimeo/player": "^2.16.4",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.49.9"
+  },
+  "devDependencies": {
+    "eslint": "8.11.0",
+    "eslint-config-next": "12.1.0"
+  }
+}

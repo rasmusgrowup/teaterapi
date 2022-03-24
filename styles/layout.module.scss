@@ -1,0 +1,7 @@
+@import 'sizes.scss';
+
+.main {
+  background-color: var(--sand);
+  min-height: calc(100vh - 450px);
+  position: relative;
+}

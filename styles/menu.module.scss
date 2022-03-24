@@ -1,0 +1,17 @@
+@import 'sizes.scss';
+
+.list {
+  align-items: center;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-right: 1rem;
+  }
+
+  li:hover {
+    text-decoration: underline;
+  }
+}

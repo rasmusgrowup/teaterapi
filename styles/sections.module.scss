@@ -1,0 +1,95 @@
+@import 'sizes.scss';
+
+.categories {
+  margin: 0 auto;
+  text-align: left;
+  padding: 3rem 1.25rem 1.5rem;
+
+  @media (min-width: $m) {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    line-height: 1.25;
+    margin: 1rem auto;
+    max-width: 500px;
+
+    @media (min-width: $m) {
+      font-size: 2em;
+      margin: 3rem auto;
+    }
+  }
+}
+
+.inner {
+  display: flex;
+  margin: 0 auto;
+  max-width: $xl;
+  position: relative;
+
+  @media (max-width: $m) {
+    flex-direction: column;
+  }
+}
+
+.imageWithText {
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 6rem auto;
+  max-width: $m;
+
+  @media (max-width: $m) {
+    display: block;
+    margin: 0 auto;
+    padding: 1.25rem;
+  }
+
+  .textBox,
+  .imageBox {
+    display: block;
+    flex: 1;
+    max-width: 50%;
+
+    @media (max-width: $m) {
+      max-width: 100%;
+    }
+  }
+
+  .imageBox {
+    border-radius: $radius;
+    overflow: hidden;
+  }
+
+  .textBox {
+    padding-right: 4rem;
+
+    @media (max-width: $m) {
+      margin-top: 2rem;
+      padding-right: 0;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.left {
+  flex-direction: row;
+
+  .textBox {
+    padding-left: 4rem;
+    padding-right: 0;
+
+    @media (max-width: $m) {
+      padding: 0;
+    }
+  }
+}

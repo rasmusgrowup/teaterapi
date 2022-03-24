@@ -1,0 +1,71 @@
+@import 'sizes.scss';
+
+.wrapper {
+  background-color: var(--darker);
+  min-height: 400px;
+  overflow: hidden;
+  position: relative;
+
+  @media (min-width: $m) {
+    height: 40vw;
+  }
+
+  &::after {
+    background-color: var(--darker);
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.content {
+  color: var(--white);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 1rem;
+  width: 100%;
+  z-index: 3;
+
+  @media (min-width: $l) {
+    max-width: 40vw;
+  }
+}
+
+.title {
+  font-size: max(3.2vw, 36px);
+}
+
+.button {
+  align-items: center;
+  border: 1px solid var(--white);
+  display: inline-flex;
+  height: 2.4rem;
+  padding: 0 1rem;
+}
+
+.button:hover {
+  background-color: var(--white);
+  border: 1px solid var(--white);
+  color: var(--black);
+}
+
+.vimeoPlayer {
+  background-color: var(--darker);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+
+  @media (min-width: $l) {
+    width: 100%;
+  }
+}

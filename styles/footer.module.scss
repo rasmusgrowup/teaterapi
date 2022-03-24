@@ -1,0 +1,42 @@
+@import 'sizes.scss';
+
+.main {
+  background-color: var(--sand);
+  border-top: 1px solid var(--dark);
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+  min-height: 450px;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.top {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.middle {
+  margin: 2rem auto;
+}
+
+.bottom {
+  opacity: 0.25;
+}
+
+.bottom:hover {
+  opacity: 1;
+}
+
+.menuFooter {
+  justify-content: center;
+  flex-direction: column;
+  line-height: 2;
+
+  @media (min-width: $l) {
+    flex-direction: row;
+    line-height: 1;
+  }
+}
