@@ -19,7 +19,7 @@ import Two from '../public/2.jpg'
 import Three from '../public/3.jpg'
 import Maria from '../public/4.jpg'
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const graphcms = new GraphQLClient(
     process.env.NEXT_PUBLIC_GRAPHCMS_URL
   )
