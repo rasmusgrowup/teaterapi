@@ -47,7 +47,7 @@ export async function getServerSideProps() {
 }
 
 export default function Artikler({ side, artikler }) {
-  console.log({ side, artikler })
+
   return (
     <>
       <Head>

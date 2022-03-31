@@ -120,7 +120,6 @@ export async function getStaticProps() {
 
 export default function Home({ side, artikler }) {
 
-  console.log({ side, artikler })
   return (
     <>
       <Head>

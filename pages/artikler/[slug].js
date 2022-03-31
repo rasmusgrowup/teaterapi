@@ -70,7 +70,6 @@ export default function Artikel({ artikel }) {
     return <ErrorPage statusCode={404} />
   }
 
-  console.log({ artikel })
   return (
     <>
       <Head>
