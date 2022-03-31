@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import scss from '../styles/sections.module.scss'
 import Chevron from '../public/chevron_right.svg'
+import { SECTION_PLACEHOLDER } from '../lib/constants'
 
 function Section({layout, titel, tekst, link, linkTekst, src}) {
   return (
@@ -36,7 +37,7 @@ Section.defaultProps = {
   tekst: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
   link: '/',
   linkTekst: 'Læs mere',
-  src: '/4.jpg'
+  src: `${SECTION_PLACEHOLDER}`
 }
 
 export default Section

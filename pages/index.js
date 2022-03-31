@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from "next/link"
 import Hero from '../components/Hero'
-import VideoHero from '../components/VideoHero'
 import Categories from '../components/Categories'
 import Articles from '../components/Articles'
 import Article from '../components/Article'
@@ -11,7 +10,6 @@ import Card from '../components/Card'
 import Tekst from '../components/Tekst'
 import Section from '../components/Section'
 import { GraphQLClient, gql } from 'graphql-request';
-import React, { useState } from 'react'
 
 import HeroHome from '../public/hero_home.jpg'
 import One from '../public/1.jpg'

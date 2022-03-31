@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import scss from '../styles/hero.module.scss'
+import { HERO_PLACEHOLDER } from '../lib/constants'
 
 function Hero({title, src, text, buttonText, href}) {
   return(
@@ -19,7 +20,7 @@ function Hero({title, src, text, buttonText, href}) {
 
 Hero.defaultProps = {
   title: 'Marias Rum er et kropsterapeutisk univers',
-  src: '/4.jpg',
+  src: `${HERO_PLACEHOLDER}`,
   text: '',
   href: '/',
   buttonText: 'Læs mere',
