@@ -4,7 +4,7 @@ import Hero from '../components/Hero'
 import VideoHero from '../components/VideoHero'
 import Categories from '../components/Categories'
 import Card from '../components/Card'
-import ImageText from '../components/ImageText'
+import Section from '../components/Section'
 
 import HeroHome from '../public/hero_home.jpg'
 import One from '../public/1.jpg'
