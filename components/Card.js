@@ -1,6 +1,7 @@
 import scss from '../styles/card.module.scss'
 import Image from "next/image"
 import Link from "next/link"
+import { PLACEHOLDER } from '../lib/constants'
 
 import Chevron from '../public/chevron_right_white.svg'
 
@@ -42,7 +43,7 @@ function Card({
 
 Card.defaultProps = {
   link: '/',
-  src: '/placeholder.png',
+  src: `${PLACEHOLDER}`,
   height: '400',
   width: '400',
   overskrift: 'Overskrift',
