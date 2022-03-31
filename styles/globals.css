@@ -25,6 +25,16 @@ a {
   text-decoration: none;
 }
 
+.underline:hover {
+  text-decoration: underline;
+}
+
+.artikelCitat {
+  border-left: 2px solid var(--dark);
+  font-size: 1.5em;
+  padding-left: 1rem;
+}
+
 * {
   box-sizing: border-box;
 }

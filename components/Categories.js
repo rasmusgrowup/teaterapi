@@ -1,12 +1,18 @@
 import scss from '../styles/sections.module.scss'
 
-export default function Categories({ title, children }) {
+function Categories({ overskrift, children }) {
   return (
     <>
       <section className={scss.categories}>
-        <h2 className={scss.sectionTitle}>{title}</h2>
+        <h2 className={scss.sectionTitle}>{overskrift}</h2>
         <div className={scss.inner}>{children}</div>
       </section>
     </>
   )
 }
+
+Categories.defaultProps = {
+  overskrift: 'Overskrift'
+}
+
+export default Categories

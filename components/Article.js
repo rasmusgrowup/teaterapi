@@ -1,10 +1,10 @@
-import scss from '../styles/card.module.scss'
+import scss from '../styles/article.module.scss'
 import Image from "next/image"
 import Link from "next/link"
 
-import Chevron from '../public/chevron_right_white.svg'
+import Chevron from '../public/chevron_right.svg'
 
-function Card({
+function Article({
   link,
   src,
   overskrift,
@@ -12,7 +12,7 @@ function Card({
   linkTekst,
   height,
   width
-  }) {
+}) {
   return (
     <>
       <Link href={link}>
@@ -29,10 +29,10 @@ function Card({
           <div className={scss.textWrapper}>
             <h3>{overskrift}</h3>
             <p>{tekst}</p>
-            <div className={scss.button}>
-              <span style={{ marginRight: '0.25rem' }}>{linkTekst}</span>
-              <Image src={Chevron} width='9' height='9' />
-            </div>
+          </div>
+          <div className={scss.button}>
+            <span style={{ marginRight: '0.25rem' }}>{linkTekst}</span>
+            <Image src={Chevron} width='9' height='9' />
           </div>
         </a>
       </Link>
@@ -40,7 +40,7 @@ function Card({
   )
 }
 
-Card.defaultProps = {
+Article.defaultProps = {
   link: '/',
   src: '/placeholder.png',
   height: '400',
@@ -50,4 +50,4 @@ Card.defaultProps = {
   linkTekst: 'Læs mere'
 }
 
-export default Card
+export default Article

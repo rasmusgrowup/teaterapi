@@ -1,0 +1,83 @@
+@import 'sizes.scss';
+
+.kortBeholder {
+  margin: 6rem auto;
+  max-width: $xl;
+  text-align: center;
+}
+
+.kortInner {
+  display: flex;
+}
+
+.wrapper {
+  display: block;
+  flex: 1;
+  margin: 0 1rem;
+  position: relative;
+  transition: 0.3s;
+  transition-property: transform;
+  width: 33%;
+
+  @media (max-width: $m) {
+    margin: 0;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  @media (min-width: $m) {
+    &:hover {
+      transform: scale(1.025);
+      transition: 0.3s;
+      transition-property: transform;
+    }
+  }
+}
+
+.imageWrapper {
+  border-radius: $radius;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    background: rgb(29, 13, 10);
+    background: linear-gradient(0deg, rgba(29, 13, 10, 1) 0%, rgba(29, 13, 10, 0) 50%);
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.textWrapper {
+  bottom: 0;
+  color: var(--white);
+  max-width: 90%;
+  padding: 2rem;
+  position: absolute;
+  text-align: left;
+  z-index: 1;
+
+  @media (min-width: $m) {
+    max-width: 85%;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+  }
+
+  p {
+    margin-top: 0.5rem;
+  }
+}
+
+.sektion {
+  display: none;
+}

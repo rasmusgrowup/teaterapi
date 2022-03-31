@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import scss from '../styles/hero.module.scss'
 
-export default function Hero({title, src, text, buttonText, href}) {
+function Hero({title, src, text, buttonText, href}) {
   return(
     <>
       <section className={scss.wrapper}>
@@ -16,3 +16,13 @@ export default function Hero({title, src, text, buttonText, href}) {
     </>
   )
 }
+
+Hero.defaultProps = {
+  title: 'Marias Rum er et kropsterapeutisk univers',
+  src: '/4.jpg',
+  text: '',
+  href: '/',
+  buttonText: 'Læs mere',
+}
+
+export default Hero

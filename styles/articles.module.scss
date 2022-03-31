@@ -1,0 +1,87 @@
+@import 'sizes.scss';
+
+.hero {
+  background-color: var(--darker);
+  min-height: 400px;
+  overflow: hidden;
+  position: relative;
+
+  @media (min-width: $m) {
+    height: 25vw;
+  }
+
+  &::after {
+    background-color: var(--darker);
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.content {
+  color: var(--white);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 1rem;
+  width: 100%;
+  z-index: 3;
+
+  @media (min-width: $l) {
+    max-width: 40vw;
+  }
+}
+
+// artikel-oversigt //
+.artikler {
+  margin: 6rem auto;
+  max-width: $m;
+}
+
+.artikel {
+  display: flex;
+  margin: 3rem auto;
+  transition: 0.3s;
+  transition-property: transform;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: 0.3s;
+    transition-property: transform;
+  }
+}
+
+.imageWrapper {
+  border-radius: $radius;
+  margin-right: 3rem;
+  min-width: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.artikelLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.title {
+  font-size: max(4vw, 36px);
+}
+
+.backLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.indhold {
+  margin: 6rem auto;
+  max-width: 600px;
+}
