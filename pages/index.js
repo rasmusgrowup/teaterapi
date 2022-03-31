@@ -18,7 +18,7 @@ import Three from '../public/3.jpg'
 import Maria from '../public/4.jpg'
 
 const graphcms = new GraphQLClient(
-  process.env.NEXT_PUBLIC_GRAPHCMS_URL
+  'https://api-eu-central-1.graphcms.com/v2/cl1aoja8b02gc01xm3r6e8ajy/master'
 )
 
 export async function getStaticProps() {

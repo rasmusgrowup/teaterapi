@@ -8,7 +8,7 @@ import { GraphQLClient } from 'graphql-request';
 import Chevron from '../../public/chevron_left.svg'
 
 const graphcms = new GraphQLClient(
-  process.env.NEXT_PUBLIC_GRAPHCMS_URL
+  'https://api-eu-central-1.graphcms.com/v2/cl1aoja8b02gc01xm3r6e8ajy/master'
 )
 
 export async function getStaticProps({ params }) {
