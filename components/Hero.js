@@ -3,14 +3,14 @@ import Link from 'next/link'
 import scss from '../styles/hero.module.scss'
 import { HERO_PLACEHOLDER } from '../lib/constants'
 
-function Hero({title, src, text, buttonText, href}) {
+function Hero({title, smallTitle, src, buttonText, href}) {
   return(
     <>
       <section className={scss.wrapper}>
         <Image src={src} layout='fill' quality='100' objectFit='cover' objectPosition='center'/>
         <div className={scss.content}>
           <h1 className={scss.title}>{title}</h1>
-          <p>{text}</p>
+          <h2 className={scss.smallTitle}>{smallTitle}</h2>
           <div><Link href={href}><a className={scss.button}>{buttonText}</a></Link></div>
         </div>
       </section>
@@ -20,8 +20,8 @@ function Hero({title, src, text, buttonText, href}) {
 
 Hero.defaultProps = {
   title: 'Marias Rum er et kropsterapeutisk univers',
+  smallTitle: '',
   src: `${HERO_PLACEHOLDER}`,
-  text: '',
   href: '/',
   buttonText: 'Læs mere',
 }

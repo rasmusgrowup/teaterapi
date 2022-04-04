@@ -20,11 +20,14 @@ function Section({layout, titel, tekst, link, linkTekst, src}) {
         </div>
         <div className={scss.textBox}>
           <h2>{titel}</h2>
-          <p>{tekst}</p>
-          <div><Link href={link}><a className='underline'>
-            <span style={{ marginRight: '0.25rem' }}>{linkTekst}</span>
-            <Image src={Chevron} width='9' height='9'/>
-          </a></Link></div>
+          <div dangerouslySetInnerHTML={{__html: tekst}}></div>
+          {
+            linkTekst &&
+            <div><Link href={`/${link}`}><a className='underline'>
+              <span style={{ marginRight: '0.25rem' }}>{linkTekst}</span>
+              <Image src={Chevron} width='9' height='9'/>
+            </a></Link></div>
+          }
         </div>
       </section>
     </>
@@ -35,8 +38,6 @@ Section.defaultProps = {
   layout: true,
   titel: 'Flot titel',
   tekst: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-  link: '/',
-  linkTekst: 'Læs mere',
   src: `${SECTION_PLACEHOLDER}`
 }
 

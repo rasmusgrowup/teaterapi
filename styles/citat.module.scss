@@ -1,0 +1,16 @@
+@import 'sizes.scss';
+
+.wrapper {
+  background-color: var(--darkSand);
+  margin: 6rem auto;
+  padding: 6rem 1rem;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: $m;
+}
+
+.citat {
+  font-size: max(1.5vw, 1em);
+}

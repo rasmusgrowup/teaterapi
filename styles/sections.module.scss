@@ -2,13 +2,13 @@
 
 .categories,
 .articles {
-  margin: 0 auto;
+  margin: 6rem auto 3rem;
   text-align: left;
-  padding: 3rem 1.25rem 1.5rem;
+  padding: 0 1.25rem 1.5rem;
 
   @media (min-width: $m) {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 0 1rem;
   }
 
   h2 {

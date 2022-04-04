@@ -26,9 +26,11 @@ export async function getStaticProps() {
     `
       query forside {
         side(where: {sidetype: Forside}) {
+          id
           ctaLink
           ctaTekst
           overskrift
+          underoverskrift
           heroBillede {
             height
             url
@@ -38,7 +40,9 @@ export async function getStaticProps() {
             __typename
             ... on Citat {
               navn
-              citat
+              citat {
+                html
+              }
               id
             }
             ... on KortBeholder {
@@ -69,9 +73,11 @@ export async function getStaticProps() {
             ... on Sektion {
               id
               layout
-              link
-              linkTekst
-              tekst
+              sektionLink
+              sektionLinkTekst
+              tekst {
+                html
+              }
               titel
               billede {
                 height
@@ -118,6 +124,8 @@ export async function getStaticProps() {
 
 export default function Home({ side, artikler }) {
 
+  console.log({side})
+
   return (
     <>
       <Head>
@@ -129,10 +137,11 @@ export default function Home({ side, artikler }) {
       <Hero
         src={side.heroBillede.url}
         title={side.overskrift}
+        smallTitle={side.underoverskrift}
         href={side.ctaLink}
         buttonText={side.ctaTekst}
       />
-      {side.blokke.map(({ id, __typename, overskrift, kort, billede, layout, link, linkTekst, tekst, titel }) => (
+      {side.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
@@ -155,9 +164,9 @@ export default function Home({ side, artikler }) {
               src={billede.url}
               layout={layout}
               titel={titel}
-              tekst={tekst}
-              link={`/${link}`}
-              linkTekst={linkTekst}
+              tekst={tekst.html}
+              link={sektionLink}
+              linkTekst={sektionLinkTekst}
             />
           :
           __typename === 'Tekst' ?
@@ -166,7 +175,15 @@ export default function Home({ side, artikler }) {
               overskrift={overskrift}
               html={tekst.html}
             />
-          : <></>
+          :
+          __typename === 'Citat' ?
+            <Citat
+              key={id}
+              navn={navn}
+              tekst={citat.html}
+            />
+          :
+          <></>
       ))}
       <Articles overskrift='Seneste artikler'>
         {artikler.map(({ id, titel, underoverskrift, slug, billede}) => (
