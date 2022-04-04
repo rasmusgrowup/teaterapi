@@ -7,6 +7,7 @@ import Categories from '../components/Categories'
 import Articles from '../components/Articles'
 import Article from '../components/Article'
 import Card from '../components/Card'
+import Citat from '../components/Citat'
 import Tekst from '../components/Tekst'
 import Section from '../components/Section'
 import { GraphQLClient, gql } from 'graphql-request';
