@@ -205,21 +205,24 @@ function Side({ landingsside }) {
           :
           <></>
       ))}
-      <Articles overskrift='Relaterede artikler'>
-        {landingsside.artikler.map(({ id, titel, underoverskrift, slug, billede}) => (
-          <Article
-            key={id}
-            overskrift={titel}
-            tekst={underoverskrift}
-            src={billede.url}
-            height='300'
-            width='400'
-            layout='responsive'
-            link={`/artikler/${slug}`}
-            linkTekst='Læs artikel'
-          />
-        ))}
-      </Articles>
+      {
+        landingsside.artikler.length !== 0 &&
+        <Articles overskrift='Relaterede artikler'>
+          {landingsside.artikler.map(({ id, titel, underoverskrift, slug, billede}) => (
+            <Article
+              key={id}
+              overskrift={titel}
+              tekst={underoverskrift}
+              src={billede.url}
+              height='300'
+              width='400'
+              layout='responsive'
+              link={`/artikler/${slug}`}
+              linkTekst='Læs artikel'
+            />
+          ))}
+        </Articles>
+      }
     </>
   )
 }
