@@ -82,12 +82,18 @@
 .mobileMenu {
   background-color: var(--white);
   display: block;
-  left: 0;
-  height: auto;
+  right: -320px;
+  height: 100vh;
   position: fixed;
   top: 0;
-  visibility: hidden;
-  width: 100%;
+  transform: translateX(0%);
+  transition: 0.5s;
+  transition-property: transform;
+  width: 320px;
+
+  @media (min-width: $l) {
+    display: none;
+  }
 
   .menuListMobile {
     display: block;
@@ -130,5 +136,7 @@
 
 .menuIsOpen {
   display: flex;
-  visibility: visible;
+  transform: translateX(-100%);
+  transition: 0.5s;
+  transition-property: transform;
 }
