@@ -3,14 +3,25 @@
 .wrapper {
   background-color: var(--darkSand);
   margin: 6rem auto;
-  padding: 6rem 1rem;
+  padding: 6rem 3rem;
+  text-align: center;
+
+  @media (max-width: $s) {
+    padding: 4rem 2rem;
+  }
 }
 
 .inner {
   margin: 0 auto;
   max-width: $m;
+  text-align: center;
+}
+
+.container {
+  padding: 0 1rem;
+  cursor: move;
 }
 
 .citat {
-  font-size: max(1.5vw, 1em);
+  font-size: 1em;
 }

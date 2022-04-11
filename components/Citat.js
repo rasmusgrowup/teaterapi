@@ -3,12 +3,10 @@ import scss from '../styles/citat.module.scss'
 function Citat({ tekst, navn }) {
   return (
     <>
-      <section className={scss.wrapper}>
-        <div className={scss.inner}>
-          <div className={scss.citat} dangerouslySetInnerHTML={{__html: tekst}}></div>
-          <p>— {navn}</p>
-        </div>
-      </section>
+      <div className={scss.container}>
+        <div className={scss.citat} dangerouslySetInnerHTML={{__html: tekst}}></div>
+        <p>— {navn}</p>
+      </div>
     </>
   )
 }

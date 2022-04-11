@@ -20,6 +20,8 @@ export async function getServerSideProps() {
           slug
           billede {
             url
+            width
+            height
           }
           titel
           underoverskrift
@@ -47,7 +49,7 @@ export async function getServerSideProps() {
 }
 
 export default function Artikler({ side, artikler }) {
-
+  console.log({ side, artikler })
   return (
     <>
       <Head>
@@ -61,11 +63,12 @@ export default function Artikler({ side, artikler }) {
         href={side.ctaLink}
       />
       <section className={scss.wrapper}>
+        <h2>Seneste artikler</h2>
         <div className={scss.artikler}>
         { artikler.map(({ id, billede, slug, titel, underoverskrift }) => (
           <Link href={`/artikler/${slug}`} key={id}><a>
             <div className={scss.artikel}>
-              <div className={scss.imageWrapper}><Image src={billede.url} objectFit='cover' height='200' width='200' sizes='20vw'/></div>
+              <div className={scss.imageWrapper}><Image src={billede.url} objectFit='cover' width='400' height='400'/></div>
               <div className={scss.artikelTekst}>
                 <h2>{titel}</h2>
                 <p>{underoverskrift}</p>

@@ -21,7 +21,7 @@ function VideoHero({title, id, text, buttonText, href}) {
         />
         <div className={scss.content}>
           <h1 className={scss.title}>{title}</h1>
-          <p>{text}</p>
+          <h2 className={scss.smallTitle}>{text}</h2>
           <div><Link href={href}><a className={scss.button}>{buttonText}</a></Link></div>
         </div>
       </section>

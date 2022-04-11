@@ -11,8 +11,6 @@ function Card({
   overskrift,
   tekst,
   linkTekst,
-  height,
-  width
   }) {
   return (
     <>
@@ -21,10 +19,9 @@ function Card({
           <div className={scss.imageWrapper}>
             <Image
               src={src}
+              layout='fill'
               objectFit='cover'
               objectPosition='center'
-              height={height}
-              width={width}
             />
           </div>
           <div className={scss.textWrapper}>
@@ -44,8 +41,6 @@ function Card({
 Card.defaultProps = {
   link: '/',
   src: `${PLACEHOLDER}`,
-  height: '400',
-  width: '400',
   overskrift: 'Overskrift',
   tekst: 'Lorum ipsum ble uhuldi, supi fera orum ibbe',
   linkTekst: 'Læs mere'

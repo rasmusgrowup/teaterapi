@@ -15,8 +15,8 @@ export default function Menu({addClass}) {
     <>
       <ul className={`${scss.list} ${addClass}`}>
         <li><Link href='/kropsterapi'><a>Kropsterapi</a></Link></li>
+        <li><Link href='/manuvision-traening'><a>ManuVision Træning</a></Link></li>
         <li><Link href='/det-kaerlige-brusebad'><a>Det Kærlige Brusebad</a></Link></li>
-        <li><Link href='/manuvision-traening'><a>ManuVision træning</a></Link></li>
         <li><Link href='/om-maria'><a>Om Maria</a></Link></li>
         <li><Link href='/artikler'><a>Artikler</a></Link></li>
       </ul>

@@ -1,13 +1,13 @@
 @import 'sizes.scss';
 
 .hero {
-  background-color: var(--darker);
-  min-height: 400px;
+  background-color: var(--sand);
+  min-height: 460px;
   overflow: hidden;
   position: relative;
 
   @media (min-width: $m) {
-    height: 25vw;
+    min-height: 520px;
   }
 
   &::after {
@@ -15,7 +15,7 @@
     bottom: 0;
     content: '';
     left: 0;
-    opacity: 0.6;
+    opacity: 0.5;
     position: absolute;
     top: 0;
     right: 0;
@@ -24,7 +24,7 @@
 }
 
 .content {
-  color: var(--white);
+  color: var(--sand);
   left: 50%;
   position: absolute;
   top: 50%;
@@ -40,14 +40,35 @@
 }
 
 // artikel-oversigt //
-.artikler {
+.wrapper {
   margin: 6rem auto;
-  max-width: $m;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.artikler {
+  column-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto;
+  max-width: $xl;
+  row-gap: 2rem;
+
+  @media (max-width: $l) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $m) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $s) {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 4rem;
+  }
 }
 
 .artikel {
-  display: flex;
-  margin: 3rem auto;
   transition: 0.3s;
   transition-property: transform;
 
@@ -61,8 +82,7 @@
 
 .imageWrapper {
   border-radius: $radius;
-  margin-right: 3rem;
-  min-width: 200px;
+  display: flex;
   overflow: hidden;
   position: relative;
 }

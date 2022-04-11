@@ -3,16 +3,23 @@
 .wrapper {
   display: block;
   flex: 1;
+  height: 36vw;
   margin: 0 1rem;
+  max-height: 495px;
   position: relative;
   transition: 0.3s;
   transition-property: transform;
   width: 33%;
 
   @media (max-width: $m) {
+    height: 60vw;
     margin: 0;
     margin-bottom: 2rem;
     width: 100%;
+  }
+
+  @media (max-width: $s) {
+    height: 110vw;
   }
 
   @media (min-width: $m) {
@@ -27,6 +34,7 @@
 .imageWrapper {
   border-radius: $radius;
   display: flex;
+  height: 100%;
   overflow: hidden;
   position: relative;
   width: 100%;

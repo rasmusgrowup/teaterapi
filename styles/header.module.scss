@@ -24,7 +24,7 @@
 
 .menuWrapper {
   align-items: center;
-  color: var(--white);
+  color: var(--sand);
   display: flex;
 }
 
@@ -36,21 +36,21 @@
 
 .button {
   align-items: center;
-  border: 1px solid var(--white);
+  border: 1px solid var(--sand);
   display: inline-flex;
   height: 2.4rem;
   padding: 0 1rem;
 }
 
 .button:hover {
-  background-color: var(--white);
-  border: 1px solid var(--white);
-  color: var(--black);
+  background-color: var(--sand);
+  border: 1px solid var(--sand);
+  color: var(--dark);
 }
 
 .menuOpenButton {
   align-items: flex-start;
-  border: 1px solid var(--white);
+  border: 1px solid var(--sand);
   display: inline-flex;
   flex-direction: column;
   height: 2.4rem;
@@ -65,7 +65,7 @@
   }
 
   span {
-    background-color: var(--white);
+    background-color: var(--sand);
     content: '';
     display: block;
     height: 1px;

@@ -1,66 +1,86 @@
 @import 'sizes.scss';
 
 .wrapper {
-  background-color: var(--darker);
-  min-height: 400px;
+  background-color: var(--sand);
+  min-height: 460px;
   overflow: hidden;
   position: relative;
 
   @media (min-width: $m) {
-    height: 40vw;
+    min-height: 520px;
   }
 
   &::after {
-    background-color: var(--darker);
+    background: var(--darker);
     bottom: 0;
     content: '';
     left: 0;
-    opacity: 0.6;
     position: absolute;
     top: 0;
     right: 0;
+    opacity: 0.5;
     z-index: 1;
   }
+
+}
+
+.akvarel {
+  left: 50%;
+  max-width: 640px;
+  opacity: 0.15;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 .content {
-  color: var(--white);
+  color: var(--sand);
   left: 50%;
+  max-width: 640px;
   position: absolute;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
   text-align: center;
   padding: 0 1rem;
   width: 100%;
   z-index: 3;
-
-  @media (min-width: $l) {
-    max-width: 52vw;
-  }
 }
 
 .title {
-  font-size: max(2.5vw, 30px);
+  font-size: 1.4em;
   line-height: 1.2;
+  text-transform: uppercase;
+
+  @media (min-width: $s) {
+    font-size: 2em;
+  }
 }
 
 .smallTitle {
-  font-size: max(1.5vw, 21px);
+  font-size: 1.1em;
   font-weight: 500;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: $m) {
+    font-size: 1.2em;
+  }
 }
 
 .button {
   align-items: center;
-  border: 1px solid var(--white);
+  border: 1px solid var(--sand);
   display: inline-flex;
-  height: 2.4rem;
-  padding: 0 1rem;
+  font-size: 0.8em;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  text-transform: uppercase;
 }
 
 .button:hover {
-  background-color: var(--white);
-  border: 1px solid var(--white);
-  color: var(--black);
+  background-color: var(--sand);
+  border: 1px solid var(--sand);
+  color: var(--dark);
 }
 
 .vimeoPlayer {

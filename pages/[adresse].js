@@ -9,6 +9,7 @@ import Article from '../components/Article'
 import Card from '../components/Card'
 import Tekst from '../components/Tekst'
 import Section from '../components/Section'
+import Citater from '../components/Citater'
 import Citat from '../components/Citat'
 import ErrorPage from 'next/error'
 import { GraphQLClient } from 'graphql-request';
@@ -30,12 +31,16 @@ export async function getStaticProps({ params }) {
         ctaTekst
         blokke {
           __typename
-          ... on Citat {
+          ... on CitatBeholder {
             id
-            citat {
-              html
+            overskrift
+            citater {
+              id
+              navn
+              tekst {
+                html
+              }
             }
-            navn
           }
           ... on KortBeholder {
             id
@@ -161,7 +166,7 @@ function Side({ landingsside }) {
         href={landingsside.ctaLink}
         buttonText={landingsside.ctaTekst}
       />
-      {landingsside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citat, navn }) => (
+      {landingsside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
@@ -196,12 +201,12 @@ function Side({ landingsside }) {
               html={tekst.html}
             />
           :
-          __typename === 'Citat' ?
-            <Citat
-              key={id}
-              navn={navn}
-              tekst={citat.html}
-            />
+          __typename === 'CitatBeholder' ?
+            <Citater overskrift={overskrift} key={id}>
+              {citater.map(({navn, tekst}) => (
+                <Citat tekst={tekst.html} navn={navn} key={id}/>
+              ))}
+            </Citater>
           :
           <></>
       ))}

@@ -14,6 +14,7 @@ function Article({
   height,
   width
 }) {
+
   return (
     <>
       <Link href={link}>

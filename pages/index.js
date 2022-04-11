@@ -7,6 +7,7 @@ import Categories from '../components/Categories'
 import Articles from '../components/Articles'
 import Article from '../components/Article'
 import Card from '../components/Card'
+import Citater from '../components/Citater'
 import Citat from '../components/Citat'
 import Tekst from '../components/Tekst'
 import Section from '../components/Section'
@@ -39,12 +40,16 @@ export async function getStaticProps() {
           }
           blokke {
             __typename
-            ... on Citat {
-              navn
-              citat {
-                html
-              }
+            ... on CitatBeholder {
               id
+              overskrift
+              citater {
+                id
+                navn
+                tekst {
+                  html
+                }
+              }
             }
             ... on KortBeholder {
               id
@@ -52,8 +57,6 @@ export async function getStaticProps() {
               kort {
                 id
                 billede {
-                  height
-                  width
                   url
                 }
                 link
@@ -142,15 +145,13 @@ export default function Home({ side, artikler }) {
         href={side.ctaLink}
         buttonText={side.ctaTekst}
       />
-      {side.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel }) => (
+      {side.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
               <Card
                 key={id}
                 src={billede.url}
-                width={billede.width}
-                height={billede.height}
                 link={`/${link}`}
                 linkTekst={linkTekst}
                 overskrift={overskrift}
@@ -177,12 +178,12 @@ export default function Home({ side, artikler }) {
               html={tekst.html}
             />
           :
-          __typename === 'Citat' ?
-            <Citat
-              key={id}
-              navn={navn}
-              tekst={citat.html}
-            />
+          __typename === 'CitatBeholder' ?
+            <Citater overskrift={overskrift} key={id}>
+              {citater.map(({navn, tekst}) => (
+                <Citat tekst={tekst.html} navn={navn} key={id}/>
+              ))}
+            </Citater>
           :
           <></>
       ))}
