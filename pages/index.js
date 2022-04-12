@@ -1,7 +1,12 @@
+// Styling
 import blokke from '../styles/blokke.module.scss'
+
+// NEXT.JS Componentys
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from "next/link"
+
+//Components
 import Hero from '../components/Hero'
 import Categories from '../components/Categories'
 import Articles from '../components/Articles'
@@ -11,8 +16,14 @@ import Citater from '../components/Citater'
 import Citat from '../components/Citat'
 import Tekst from '../components/Tekst'
 import Section from '../components/Section'
+import Mailchimp from '../components/Mailchimp'
+import Priser from '../components/Priser'
+import Pris from '../components/Pris'
+
+//GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
 
+// Assets
 import HeroHome from '../public/hero_home.jpg'
 import One from '../public/1.jpg'
 import Two from '../public/2.jpg'
@@ -65,15 +76,6 @@ export async function getStaticProps() {
                 overskrift
               }
             }
-            ... on Priskasse {
-              id
-              overskrift
-              link
-              linkTekst
-              tekst {
-                html
-              }
-            }
             ... on Sektion {
               id
               layout
@@ -94,6 +96,25 @@ export async function getStaticProps() {
               overskrift
               tekst {
                 html
+              }
+            }
+            ... on Mailchimp {
+              id
+              mailchimpOverskrift
+              mailchimpTekst {
+                html
+              }
+              mailchimpUrl
+            }
+            ... on PrisBeholder {
+              id
+              priserOverskrift
+              priser {
+                id
+                beskrivelse
+                pris
+                ydelse
+                prisLink
               }
             }
           }
@@ -145,7 +166,7 @@ export default function Home({ side, artikler }) {
         href={side.ctaLink}
         buttonText={side.ctaTekst}
       />
-      {side.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater }) => (
+      {side.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
@@ -184,6 +205,16 @@ export default function Home({ side, artikler }) {
                 <Citat tekst={tekst.html} navn={navn} key={id}/>
               ))}
             </Citater>
+          :
+          __typename === 'Mailchimp' ?
+            <Mailchimp overskrift={mailchimpOverskrift} html={mailchimpTekst.html} url={mailchimpUrl} />
+          :
+          __typename === 'PrisBeholder' ?
+            <Priser overskrift={priserOverskrift}>
+              {priser.map(({ id, ydelse, beskrivelse, pris, prisLink}) => (
+                <Pris key={id} ydelse={ydelse} beskrivelse={beskrivelse} pris={pris} href={prisLink}/>
+              ))}
+            </Priser>
           :
           <></>
       ))}

@@ -79,7 +79,7 @@ export default function Artikel({ artikel }) {
         <meta name="keywords" content={artikel.seo.metaTags} key='keywords' />
       </Head>
       <section className={scss.hero}>
-        <div><Image src={artikel.billede.url} layout='fill' quality='100' objectFit='cover' objectPosition='center'/></div>
+        <div><Image src={artikel.billede.url} layout='fill' quality='100' objectFit='cover' objectPosition='center' priority='true'/></div>
         <div className={scss.content}>
           <h1 className={scss.title}>{artikel.titel}</h1>
         </div>

@@ -1,7 +1,10 @@
+// Default imports
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from "next/link"
+
+// Components
 import Hero from '../components/Hero'
 import Categories from '../components/Categories'
 import Articles from '../components/Articles'
@@ -11,6 +14,11 @@ import Tekst from '../components/Tekst'
 import Section from '../components/Section'
 import Citater from '../components/Citater'
 import Citat from '../components/Citat'
+import Mailchimp from '../components/Mailchimp'
+import Priser from '../components/Priser'
+import Pris from '../components/Pris'
+
+// GraphCMS
 import ErrorPage from 'next/error'
 import { GraphQLClient } from 'graphql-request';
 
@@ -57,15 +65,6 @@ export async function getStaticProps({ params }) {
             }
             overskrift
           }
-          ... on Priskasse {
-            id
-            link
-            linkTekst
-            overskrift
-            tekst {
-              html
-            }
-          }
           ... on Sektion {
             id
             billede {
@@ -86,6 +85,25 @@ export async function getStaticProps({ params }) {
             overskrift
             tekst {
               html
+            }
+          }
+          ... on Mailchimp {
+            id
+            mailchimpOverskrift
+            mailchimpTekst {
+              html
+            }
+            mailchimpUrl
+          }
+          ... on PrisBeholder {
+            id
+            priserOverskrift
+            priser {
+              id
+              beskrivelse
+              pris
+              ydelse
+              prisLink
             }
           }
         }
@@ -207,6 +225,16 @@ function Side({ landingsside }) {
                 <Citat tekst={tekst.html} navn={navn} key={id}/>
               ))}
             </Citater>
+          :
+          __typename === 'Mailchimp' ?
+            <Mailchimp overskrift={mailchimpOverskrift} html={mailchimpTekst.html} url={mailchimpUrl} />
+          :
+          __typename === 'PrisBeholder' ?
+            <Priser overskrift={priserOverskrift}>
+              {priser.map(({ id, ydelse, beskrivelse, pris, prisLink}) => (
+                <Pris key={id} ydelse={ydelse} beskrivelse={beskrivelse} pris={pris} href={prisLink}/>
+              ))}
+            </Priser>
           :
           <></>
       ))}

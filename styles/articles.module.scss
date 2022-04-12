@@ -104,4 +104,9 @@
 .indhold {
   margin: 6rem auto;
   max-width: 600px;
+  padding: 1.25rem;
+
+  @media (max-width: $s) {
+    margin: 3rem auto;
+  }
 }

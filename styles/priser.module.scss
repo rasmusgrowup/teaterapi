@@ -1,0 +1,68 @@
+@import 'sizes.scss';
+
+.wrapper {
+  margin: 3rem auto 6rem;
+  max-width: $xl;
+  padding: 2rem 3rem;
+  text-align: center;
+
+  @media (max-width: $m) {
+    padding: 1.25rem;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $s) {
+    flex-direction: column;
+  }
+}
+
+.pris {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--darkSand);
+  border: 1px solid var(--darkSand);
+  border-radius: $radius;
+  justify-content: space-between;
+  margin: 0 0.5rem;
+  padding: 1.25rem;
+
+  @media (max-width: $s) {
+    margin: 1rem 0;
+  }
+}
+
+.ydelse {
+  margin: 0;
+}
+
+.beskrivelse,
+.ydelse {
+  align-self: flex-start;
+  text-align: left;
+}
+
+.prisen {
+  align-self: flex-start;
+  font-weight: bold;
+}
+
+.button {
+  background-color: var(--dark);
+  border-radius: calc($radius / 1.5);
+  color: var(--darkSand);
+  margin-top: 1rem;
+  padding: 0.5rem;
+  transition: 0.3s;
+  transition-property: background-color;
+}
+
+.button:hover {
+  background-color: var(--darker);
+  transition: 0.3s;
+  transition-property: background-color;
+}

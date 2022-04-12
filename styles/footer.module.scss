@@ -11,6 +11,10 @@
   min-height: 450px;
   text-align: center;
   padding: 3rem 1rem;
+
+  @media (max-width: $s) {
+    margin-top: 1rem;
+  }
 }
 
 .top {

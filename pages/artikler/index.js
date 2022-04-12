@@ -27,6 +27,9 @@ export async function getServerSideProps() {
           underoverskrift
         }
         side(where: {sidetype: Artikler}) {
+          heroBillede {
+            url
+          }
           ctaLink
           ctaTekst
           overskrift
@@ -58,6 +61,7 @@ export default function Artikler({ side, artikler }) {
         <meta name="keywords" content={side.seo.metaTags} key='keywords' />
       </Head>
       <Hero
+        src={side.heroBillede.url}
         title={side.overskrift}
         buttonText={side.ctaTekst}
         href={side.ctaLink}
