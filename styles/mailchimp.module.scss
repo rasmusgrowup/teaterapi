@@ -40,3 +40,7 @@
   transition: 0.3s;
   transition-property: background-color;
 }
+
+.form input::placeholder {
+  color: var(--lightDark)
+}

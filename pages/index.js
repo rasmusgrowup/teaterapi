@@ -148,9 +148,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ side, artikler }) {
-
-  console.log({side})
-
   return (
     <>
       <Head>
@@ -207,10 +204,10 @@ export default function Home({ side, artikler }) {
             </Citater>
           :
           __typename === 'Mailchimp' ?
-            <Mailchimp overskrift={mailchimpOverskrift} html={mailchimpTekst.html} url={mailchimpUrl} />
+            <Mailchimp overskrift={mailchimpOverskrift} html={mailchimpTekst.html} url={mailchimpUrl} key={id}/>
           :
           __typename === 'PrisBeholder' ?
-            <Priser overskrift={priserOverskrift}>
+            <Priser overskrift={priserOverskrift} key={id}>
               {priser.map(({ id, ydelse, beskrivelse, pris, prisLink}) => (
                 <Pris key={id} ydelse={ydelse} beskrivelse={beskrivelse} pris={pris} href={prisLink}/>
               ))}

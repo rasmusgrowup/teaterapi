@@ -29,10 +29,12 @@
   display: flex;
   margin: 0 auto;
   max-width: $xl;
+  padding: 0 2.5rem;
   position: relative;
 
   @media (max-width: $m) {
     flex-direction: column;
+    padding: 0;
   }
 }
 
@@ -93,5 +95,19 @@
     @media (max-width: $m) {
       padding: 0;
     }
+  }
+}
+
+.button {
+  display: block;
+  margin-top: 2rem;
+  text-decoration: underline;
+
+  span {
+    margin-right: 0.25rem;
+  }
+
+  &:hover {
+    opacity: 0.5;
   }
 }

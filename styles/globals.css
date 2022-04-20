@@ -26,8 +26,12 @@ a {
   text-decoration: none;
 }
 
-.underline:hover {
+.link {
   text-decoration: underline;
+}
+
+.link:hover {
+  opacity: 0.5;
 }
 
 .artikelCitat {
@@ -58,6 +62,7 @@ p {
   --black: #000;
   --white: #fff;
   --dark: #5F3A31;
+  --lightDark: rgb(207, 176, 168);
   --darker: #1d0d0a;
   --darkSand: #ffe8cf;
   --sand: #FFF4E8;
