@@ -44,3 +44,13 @@
     line-height: 1;
   }
 }
+
+.policy {
+  margin-bottom: 1rem;
+  opacity: 0.25;
+}
+
+.policy:hover {
+  text-decoration: underline;
+  opacity: 1;
+}

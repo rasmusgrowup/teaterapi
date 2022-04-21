@@ -111,3 +111,13 @@
     opacity: 0.5;
   }
 }
+
+.handelsbetingelser {
+  margin: 6rem auto;
+  max-width: $m;
+
+  .backLink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

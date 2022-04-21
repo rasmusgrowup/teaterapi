@@ -18,9 +18,11 @@ export default function Footer({footerTekst}) {
         <div className={scss.middle}>
           <Menu addClass={scss.menuFooter} footer />
         </div>
+        <div className={scss.policy}>
+          <Link href='/handelsbetingelser'><a>Handelsbetingelser</a></Link>
+        </div>
         <div className={scss.bottom}>
           <span>©{new Date().getFullYear()} Marias Rum — Webdesign af <Link href='https://growupstudio.dk'><a>Growup Studio</a></Link></span>
-          <span></span>
         </div>
       </footer>
     </>
