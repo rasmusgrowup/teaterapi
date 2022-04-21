@@ -28,8 +28,6 @@ export default function Menu({ addClass, footer }) {
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
 
-  console.log({ data })
-
   return(
     <>
       <ul className={`${scss.list} ${addClass}`}>
@@ -42,7 +40,7 @@ export default function Menu({ addClass, footer }) {
             <ul>
               { data.kropsterapiUndersider.map((underside) => (
                 <li key={underside.adresse}>
-                  <Link href='/'>
+                  <Link href={`/kropsterapi/${underside.adresse}`}>
                     <a>{underside.titel}</a>
                   </Link>
                 </li>
