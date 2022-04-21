@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Hero from '../../components/Hero'
-import VideoHero from '../components/VideoHero'
+import VideoHero from '../../components/VideoHero'
 import Image from "next/image"
 import Link from "next/link"
 import scss from '../../styles/articles.module.scss'
