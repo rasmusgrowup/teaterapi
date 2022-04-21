@@ -6,6 +6,7 @@ import Link from "next/link"
 
 // Components
 import Hero from '../components/Hero'
+import VideoHero from '../components/VideoHero'
 import Categories from '../components/Categories'
 import Articles from '../components/Articles'
 import Article from '../components/Article'
@@ -111,6 +112,7 @@ export async function getStaticProps({ params }) {
           height
           width
           url
+          mimeType
         }
         seo {
           metaBeskrivelse
@@ -177,13 +179,20 @@ function Side({ landingsside }) {
         <meta name="keywords" content={landingsside.seo.metaTags} key='keywords'/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero
+      { landingsside.heroBillede.mimeType != 'video/mp4' ? <Hero
         src={landingsside.heroBillede.url}
         title={landingsside.overskrift}
         smallTitle={landingsside.underoverskrift}
         href={landingsside.ctaLink}
         buttonText={landingsside.ctaTekst}
-      />
+      /> :
+      <VideoHero
+      url={landingsside.heroBillede.url}
+      title={landingsside.overskrift}
+      text={landingsside.underoverskrift}
+      href={landingsside.ctaLink}
+      buttonText={landingsside.ctaTekst}
+      />}
       {landingsside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>

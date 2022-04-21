@@ -6,6 +6,7 @@ import Link from "next/link"
 
 // Components
 import Hero from '../../components/Hero'
+import VideoHero from '../../components/VideoHero'
 import Categories from '../../components/Categories'
 import Articles from '../../components/Articles'
 import Article from '../../components/Article'
@@ -108,6 +109,7 @@ export async function getStaticProps({ params }) {
           }
         }
         heroBillede {
+          mimeType
           height
           width
           url
@@ -177,13 +179,20 @@ function Side({ kropsterapiUnderside }) {
         <meta name="keywords" content={kropsterapiUnderside.seo.metaTags} key='keywords'/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero
+      { kropsterapiUnderside.heroBillede.mimeType != 'video/mp4' ? <Hero
         src={kropsterapiUnderside.heroBillede.url}
         title={kropsterapiUnderside.overskrift}
         smallTitle={kropsterapiUnderside.underoverskrift}
         href={kropsterapiUnderside.ctaLink}
         buttonText={kropsterapiUnderside.ctaTekst}
-      />
+      /> :
+      <VideoHero
+      url={kropsterapiUnderside.heroBillede.url}
+      title={kropsterapiUnderside.overskrift}
+      text={kropsterapiUnderside.underoverskrift}
+      href={kropsterapiUnderside.ctaLink}
+      buttonText={kropsterapiUnderside.ctaTekst}
+      />}
       {kropsterapiUnderside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>

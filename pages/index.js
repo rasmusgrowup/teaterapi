@@ -8,6 +8,7 @@ import Link from "next/link"
 
 //Components
 import Hero from '../components/Hero'
+import VideoHero from '../components/VideoHero'
 import Categories from '../components/Categories'
 import Articles from '../components/Articles'
 import Article from '../components/Article'
@@ -45,6 +46,7 @@ export async function getStaticProps() {
           overskrift
           underoverskrift
           heroBillede {
+            mimeType
             height
             url
             width
@@ -156,13 +158,22 @@ export default function Home({ side, artikler }) {
         <meta name="keywords" content={side.seo.metaTags} key='keywords'/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero
-        src={side.heroBillede.url}
+      { side.heroBillede.mimeType != 'video/mp4' ?
+        <Hero
+          src={side.heroBillede.url}
+          title={side.overskrift}
+          smallTitle={side.underoverskrift}
+          href={side.ctaLink}
+          buttonText={side.ctaTekst}
+        /> :
+        <VideoHero
+        url={side.heroBillede.url}
         title={side.overskrift}
-        smallTitle={side.underoverskrift}
+        text={side.underoverskrift}
         href={side.ctaLink}
         buttonText={side.ctaTekst}
-      />
+        />
+      }
       {side.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>

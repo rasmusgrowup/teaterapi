@@ -4,21 +4,25 @@ import scss from '../styles/hero.module.scss'
 import React, { useRef } from 'react'
 import Vimeo from '@u-wave/react-vimeo'
 
-function VideoHero({title, id, text, buttonText, href}) {
+function VideoHero({title, url, text, buttonText, href}) {
   const ref = useRef(null);
 
   return(
     <>
       <section className={scss.wrapper}>
-        <Vimeo
-          background
-          muted
-          loop
-          responsive
-          video={id}
-          className={scss.vimeoPlayer}
-          start='0'
-        />
+        <video
+            className={scss.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ objectFit: 'cover' }}
+            width='100%'
+            height='100%'
+            alt=''
+            >
+          <source src='https://media.graphassets.com/yrNF9puQRyQraoZz4tcA' type='video/mp4' />
+        </video>
         <div className={scss.content}>
           <h1 className={scss.title}>{title}</h1>
           <h2 className={scss.smallTitle}>{text}</h2>

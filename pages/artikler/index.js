@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Hero from '../../components/Hero'
+import VideoHero from '../components/VideoHero'
 import Image from "next/image"
 import Link from "next/link"
 import scss from '../../styles/articles.module.scss'
@@ -19,6 +20,7 @@ export async function getServerSideProps() {
           id
           slug
           billede {
+            mimeType
             url
             width
             height
@@ -60,12 +62,19 @@ export default function Artikler({ side, artikler }) {
         <meta name="description" content={side.seo.metaBeskrivelse} key='description'/>
         <meta name="keywords" content={side.seo.metaTags} key='keywords' />
       </Head>
-      <Hero
+      { side.heroBillede.mimeType != 'video/mp4' ? <Hero
         src={side.heroBillede.url}
         title={side.overskrift}
         buttonText={side.ctaTekst}
         href={side.ctaLink}
-      />
+      /> :
+      <VideoHero
+      url={side.heroBillede.url}
+      title={side.overskrift}
+      text={side.underoverskrift}
+      href={side.ctaLink}
+      buttonText={side.ctaTekst}
+      />}
       <section className={scss.wrapper}>
         <h2>Seneste artikler</h2>
         <div className={scss.artikler}>

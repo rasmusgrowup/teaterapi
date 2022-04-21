@@ -115,6 +115,11 @@
 .handelsbetingelser {
   margin: 6rem auto;
   max-width: $m;
+  padding: 0 1rem;
+
+  @media (max-width: $m) {
+    margin: 3rem auto;
+  }
 
   .backLink:hover {
     cursor: pointer;
