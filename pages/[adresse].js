@@ -173,12 +173,14 @@ function Side({ landingsside }) {
 
   return (
     <>
-      <Head>
-        <title>Marias Rum | {landingsside.seo.metaTitel}</title>
-        <meta name="description" content={landingsside.seo.metaBeskrivelse} key='description'/>
-        <meta name="keywords" content={landingsside.seo.metaTags} key='keywords'/>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      { landingsside.seo &&
+        <Head>
+          <title>Marias Rum | {landingsside.seo.metaTitel}</title>
+          <meta name="description" content={landingsside.seo.metaBeskrivelse} key='description'/>
+          <meta name="keywords" content={landingsside.seo.metaTags} key='keywords'/>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+      }
       { landingsside.heroBillede.mimeType != 'video/mp4' ? <Hero
         src={landingsside.heroBillede.url}
         title={landingsside.overskrift}

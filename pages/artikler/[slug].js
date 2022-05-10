@@ -64,20 +64,24 @@ export async function getStaticPaths() {
   }
 }
 
-export default function Artikel({ artikel }) {
+function Artikel({ artikel }) {
   const router = useRouter()
 
   if (!router.isFallback && !artikel?.slug) {
     return <ErrorPage statusCode={404} />
   }
 
+  console.log({ artikel })
+
   return (
     <>
-      <Head>
-        <title>Marias Rum | {artikel.seo.metaTitel}</title>
-        <meta name="description" content={artikel.seo.metaBeskrivelse} key='description'/>
-        <meta name="keywords" content={artikel.seo.metaTags} key='keywords' />
-      </Head>
+      { artikel.seo &&
+        <Head>
+          <title>Marias Rum | {artikel.seo.metaTitel}</title>
+          <meta name="description" content={artikel.seo.metaBeskrivelse} key='description'/>
+          <meta name="keywords" content={artikel.seo.metaTags} key='keywords' />
+        </Head>
+      }
       <section className={scss.hero}>
         <div><Image src={artikel.billede.url} layout='fill' quality='100' objectFit='cover' objectPosition='center' priority='true'/></div>
         <div className={scss.content}>
@@ -96,3 +100,11 @@ export default function Artikel({ artikel }) {
     </>
   )
 }
+
+Artikel.defaultProps = {
+  title: 'Marias Rum | Et Kropsterapeutisk Univers',
+  keywords: 'Kropsterapi, angst, traume, stress, sorg, behandling',
+  description: 'Traumer er en del af livet. Vi kommer alle ud for situationer, som vi ikke er forberedte på. Situationer, hvor kroppen bliver bange og trækker sig sammen. Noget indeni går i stå, og åndedrættet bliver tilbageholdt.'
+}
+
+export default Artikel

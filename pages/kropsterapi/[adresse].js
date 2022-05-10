@@ -173,12 +173,15 @@ function Side({ kropsterapiUnderside }) {
 
   return (
     <>
-      <Head>
-        <title>Marias Rum | {kropsterapiUnderside.seo.metaTitel}</title>
-        <meta name="description" content={kropsterapiUnderside.seo.metaBeskrivelse} key='description'/>
-        <meta name="keywords" content={kropsterapiUnderside.seo.metaTags} key='keywords'/>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      {
+        kropsterapiUnderside.seo &&
+        <Head>
+          <title>Marias Rum | {kropsterapiUnderside.seo.metaTitel}</title>
+          <meta name="description" content={kropsterapiUnderside.seo.metaBeskrivelse} key='description'/>
+          <meta name="keywords" content={kropsterapiUnderside.seo.metaTags} key='keywords'/>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+      }
       { kropsterapiUnderside.heroBillede.mimeType != 'video/mp4' ? <Hero
         src={kropsterapiUnderside.heroBillede.url}
         title={kropsterapiUnderside.overskrift}

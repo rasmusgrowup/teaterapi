@@ -152,12 +152,14 @@ export async function getStaticProps() {
 export default function Home({ side, artikler }) {
   return (
     <>
-      <Head>
-        <title>Marias Rum | {side.seo.metaTitel}</title>
-        <meta name="description" content={side.seo.metaBeskrivelse} key='description'/>
-        <meta name="keywords" content={side.seo.metaTags} key='keywords'/>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      { side.seo &&
+        <Head>
+          <title>Marias Rum | {side.seo.metaTitel}</title>
+          <meta name="description" content={side.seo.metaBeskrivelse} key='description'/>
+          <meta name="keywords" content={side.seo.metaTags} key='keywords'/>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+      }
       { side.heroBillede.mimeType != 'video/mp4' ?
         <Hero
           src={side.heroBillede.url}

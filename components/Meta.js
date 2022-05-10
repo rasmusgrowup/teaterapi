@@ -13,10 +13,10 @@ function Meta({ title, keywords, description }) {
   )
 }
 
-export default Meta
-
 Meta.defaultProps = {
-  title: 'Marias Rum | Kropsterapi',
-  keywords: 'Kommerciel, foto, video, fotografering, videoproduktion, pack-shots, professionel, odense, centrum, Stöj, uddannede fotografer, uddannet fotograf',
-  description: 'Vi skyder kommercielle billeder for landets største mediehuse, og arbejder med konceptudvikling for mindre virksomheder og start-ups. Vi er drevet af en passion for vores fag og sætter en ære i grundighed.'
+  title: 'Marias Rum | Et Kropsterapeutisk Univers',
+  keywords: 'Kropsterapi, angst, traume, stress, sorg, behandling',
+  description: 'Traumer er en del af livet. Vi kommer alle ud for situationer, som vi ikke er forberedte på. Situationer, hvor kroppen bliver bange og trækker sig sammen. Noget indeni går i stå, og åndedrættet bliver tilbageholdt.'
 }
+
+export default Meta
