@@ -1,7 +1,8 @@
 @import 'sizes.scss';
 
 .wrapper {
-  margin: 0 auto 6rem;
-  max-width: $m;
+  margin: 6rem auto;
+  max-width: calc($m / 1.2);
   padding: 0 1.25rem;
+  text-align: center;
 }

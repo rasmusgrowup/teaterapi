@@ -89,12 +89,8 @@ function Artikel({ artikel }) {
         </div>
       </section>
       <section className={scss.indhold}>
-        <div className={scss.backLink} onClick={router.back}>
-        <Image src={Chevron} height='9' width='9' />
-        <span style={{ marginLeft: '0.25rem'}}>tilbage</span>
-        </div>
-        <h2>{artikel.underoverskrift[0]}</h2>
-        <h3>{artikel.underoverskrift[1]}</h3>
+        <h2 className={scss.articleTitel}>{artikel.titel}</h2>
+        <h3 className={scss.articleSubTitel}>{artikel.underoverskrift[0]}</h3>
         <div dangerouslySetInnerHTML={{ __html: artikel.indhold.html }}></div>
       </section>
     </>

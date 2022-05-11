@@ -87,7 +87,7 @@ export default function Artikler({ side, artikler }) {
               <div className={scss.imageWrapper}><Image src={billede.url} objectFit='cover' width='400' height='400'/></div>
               <div className={scss.artikelTekst}>
                 <h2>{titel}</h2>
-                <p>{underoverskrift}</p>
+                <p>{underoverskrift[0]}</p>
                 <span>Læs mere</span>
               </div>
             </div>

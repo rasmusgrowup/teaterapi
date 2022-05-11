@@ -233,7 +233,7 @@ export default function Home({ side, artikler }) {
           <Article
             key={id}
             overskrift={titel}
-            tekst={underoverskrift}
+            tekst={underoverskrift[0]}
             src={billede.url}
             height='300'
             width='400'

@@ -10,7 +10,7 @@
 .form input,
 .form button {
   background-color: var(--sand);
-  border: 1px solid var(--dark);
+  border: 1px solid var(--darkRosa);
   border-radius: calc($radius / 3);
   font-size: 1em;
   width: 100%;
@@ -24,11 +24,11 @@
 }
 
 .form input {
-  color: var(--dark);
+  color: var(--darkRosa);
 }
 
 .form button {
-  background-color: var(--dark);
+  background-color: var(--darkRosa);
   color: var(--sand);
   cursor: pointer;
   transition: 0.3s;
@@ -36,7 +36,8 @@
 }
 
 .form button:hover {
-  background-color: var(--darker);
+  background-color: var(--dark);
+  border-color: var(--dark);
   transition: 0.3s;
   transition-property: background-color;
 }

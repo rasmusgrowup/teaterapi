@@ -35,12 +35,13 @@
     transition-property: opacity;
     top: 50px;
     visibility: hidden;
-    width: 200px;
+    width: auto;
 
     ul {
-      background-color: var(--white);
-      border-radius: calc($radius / 2);
+      background-color: var(--clay);
+      cursor: pointer;
       list-style: none;
+      line-height: 1.75;
       padding: 0.75rem 1rem;
     }
   }

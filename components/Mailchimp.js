@@ -6,16 +6,14 @@ import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 // a basic form
 const CustomForm = ({ status, message, onValidated }) => {
-  let email, fname, lname;
+  let email, fname;
   const submit = () =>
     email &&
     fname &&
-    lname &&
     email.value.indexOf("@") > -1 &&
     onValidated({
       EMAIL: email.value,
-      FNAME: fname.value,
-      LNAME: lname.value
+      FNAME: fname.value
     });
 
   return (
@@ -26,19 +24,12 @@ const CustomForm = ({ status, message, onValidated }) => {
       <input
         ref={node => (fname = node)}
         type="text"
-        placeholder="Indtast dit fornavn"
+        placeholder="Fornavn"
       />
-      <br />
-      <input
-        ref={node => (lname = node)}
-        type="text"
-        placeholder="Indtast dit efternavn"
-      />
-      <br />
       <input
         ref={node => (email = node)}
         type="email"
-        placeholder="Indtast din email-adresse"
+        placeholder="Email-adresse"
       />
       <br />
       <button onClick={submit}>
