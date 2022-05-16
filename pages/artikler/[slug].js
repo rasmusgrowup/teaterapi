@@ -3,6 +3,7 @@ import Akvarel from '../../public/Akvarel.png'
 import scss from '../../styles/articles.module.scss'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import React from 'react'
 import ErrorPage from 'next/error'
 import { GraphQLClient } from 'graphql-request';
 
@@ -16,6 +17,8 @@ export async function getStaticProps({ params }) {
   const { artikel } = await graphcms.request(`
     query ArtikelQuery($slug: String!) {
       artikel(where: { slug: $slug}) {
+        createdAt
+        forfatter
         slug
         tags
         seo {
@@ -89,6 +92,8 @@ function Artikel({ artikel }) {
         </div>
       </section>
       <section className={scss.indhold}>
+        <div className={scss.date}>Dato: {new Date(`${artikel.createdAt}`).toLocaleDateString()}</div>
+        <div className={scss.author}>Forfatter: {artikel.forfatter}</div>
         <h2 className={scss.articleTitel}>{artikel.titel}</h2>
         <h3 className={scss.articleSubTitel}>{artikel.underoverskrift[0]}</h3>
         <div dangerouslySetInnerHTML={{ __html: artikel.indhold.html }}></div>
