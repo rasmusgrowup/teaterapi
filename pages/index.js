@@ -183,7 +183,7 @@ export default function Home({ side, artikler }) {
               <Card
                 key={id}
                 src={billede.url}
-                link={`/${link}`}
+                link={link}
                 linkTekst={linkTekst}
                 overskrift={overskrift}
                 tekst={tekst}

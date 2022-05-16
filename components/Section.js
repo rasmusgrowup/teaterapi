@@ -23,7 +23,7 @@ function Section({layout, titel, tekst, link, linkTekst, src}) {
           <div dangerouslySetInnerHTML={{__html: tekst}}></div>
           {
             linkTekst &&
-            <div><Link href={`/${link}`}><a className='link'>
+            <div><Link href={link}><a className='link'>
               <span style={{ marginRight: '0.25rem' }}>{linkTekst}</span>
               <Image src={Chevron} width='9' height='9'/>
             </a></Link></div>

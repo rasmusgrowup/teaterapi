@@ -13,7 +13,7 @@ export default function Pris({ ydelse, beskrivelse, pris, href }) {
           <p className={scss.beskrivelse}>{beskrivelse}</p>
         </div>
         <div className={scss.prisen}>{pris}</div>
-        <Link href={`/${href}`}><a className={scss.button}>Book nu</a></Link>
+        <Link href={href}><a className={scss.button}>Book nu</a></Link>
       </div>
     </>
   )
