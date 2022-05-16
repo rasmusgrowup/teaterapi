@@ -36,10 +36,10 @@ const graphcms = new GraphQLClient(
 )
 
 export async function getStaticProps() {
-  const { side, artikler } = await graphcms.request(
+  const { hovedside, artikler } = await graphcms.request(
     `
       query forside {
-        side(where: {sidetype: Forside}) {
+        hovedside(where: {sidetype: Forside}) {
           id
           ctaLink
           ctaTekst
@@ -143,40 +143,40 @@ export async function getStaticProps() {
 
   return {
     props: {
-      side,
+      hovedside,
       artikler
     }
   }
 }
 
-export default function Home({ side, artikler }) {
+export default function Home({ hovedside, artikler }) {
   return (
     <>
-      { side.seo &&
+      { hovedside.seo &&
         <Head>
-          <title>Marias Rum | {side.seo.metaTitel}</title>
-          <meta name="description" content={side.seo.metaBeskrivelse} key='description'/>
-          <meta name="keywords" content={side.seo.metaTags} key='keywords'/>
+          <title>Marias Rum | {hovedside.seo.metaTitel}</title>
+          <meta name="description" content={hovedside.seo.metaBeskrivelse} key='description'/>
+          <meta name="keywords" content={hovedside.seo.metaTags} key='keywords'/>
           <link rel="icon" href="/favicon.ico" />
         </Head>
       }
-      { side.heroBillede.mimeType != 'video/mp4' ?
+      { hovedside.heroBillede.mimeType != 'video/mp4' ?
         <Hero
-          src={side.heroBillede.url}
-          title={side.overskrift}
-          smallTitle={side.underoverskrift}
-          href={side.ctaLink}
-          buttonText={side.ctaTekst}
+          src={hovedside.heroBillede.url}
+          title={hovedside.overskrift}
+          smallTitle={hovedside.underoverskrift}
+          href={hovedside.ctaLink}
+          buttonText={hovedside.ctaTekst}
         /> :
         <VideoHero
-        url={side.heroBillede.url}
-        title={side.overskrift}
-        text={side.underoverskrift}
-        href={side.ctaLink}
-        buttonText={side.ctaTekst}
+        url={hovedside.heroBillede.url}
+        title={hovedside.overskrift}
+        text={hovedside.underoverskrift}
+        href={hovedside.ctaLink}
+        buttonText={hovedside.ctaTekst}
         />
       }
-      {side.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
+      {hovedside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (

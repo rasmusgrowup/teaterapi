@@ -6,6 +6,8 @@ import Link from "next/link"
 import scss from '../../styles/articles.module.scss'
 import { GraphQLClient } from 'graphql-request';
 
+import Tekst from '../../components/Tekst'
+
 import Placeholder from '../../public/placeholder.svg'
 
 const graphcms = new GraphQLClient(
@@ -13,7 +15,7 @@ const graphcms = new GraphQLClient(
 )
 
 export async function getServerSideProps() {
-  const { side, artikler } = await graphcms.request(
+  const { hovedside, artikler } = await graphcms.request(
     `
       query ArtiklerQuery {
         artikler {
@@ -28,7 +30,7 @@ export async function getServerSideProps() {
           titel
           underoverskrift
         }
-        side(where: {sidetype: Artikler}) {
+        hovedside(where: {sidetype: Artikler}) {
           heroBillede {
             url
           }
@@ -40,6 +42,16 @@ export async function getServerSideProps() {
             metaTags
             metaTitel
           }
+          blokke {
+            __typename
+            ... on Tekst {
+              id
+              overskrift
+              tekst {
+                html
+              }
+            }
+          }
         }
       }
     `
@@ -47,37 +59,47 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      side,
+      hovedside,
       artikler
     }
   }
 }
 
-export default function Artikler({ side, artikler }) {
-  console.log({ side, artikler })
+export default function Artikler({ hovedside, artikler }) {
+  console.log({ hovedside, artikler })
   return (
     <>
       {
-        side.seo &&
+        hovedside.seo &&
         <Head>
-          <title>Marias Rum | {side.seo.metaTitel}</title>
-          <meta name="description" content={side.seo.metaBeskrivelse} key='description'/>
-          <meta name="keywords" content={side.seo.metaTags} key='keywords' />
+          <title>Marias Rum | {hovedside.seo.metaTitel}</title>
+          <meta name="description" content={hovedside.seo.metaBeskrivelse} key='description'/>
+          <meta name="keywords" content={hovedside.seo.metaTags} key='keywords' />
         </Head>
       }
-      { side.heroBillede.mimeType != 'video/mp4' ? <Hero
-        src={side.heroBillede.url}
-        title={side.overskrift}
-        buttonText={side.ctaTekst}
-        href={side.ctaLink}
+      { hovedside.heroBillede.mimeType != 'video/mp4' ? <Hero
+        src={hovedside.heroBillede.url}
+        title={hovedside.overskrift}
+        buttonText={hovedside.ctaTekst}
+        href={hovedside.ctaLink}
       /> :
       <VideoHero
-      url={side.heroBillede.url}
-      title={side.overskrift}
-      text={side.underoverskrift}
-      href={side.ctaLink}
-      buttonText={side.ctaTekst}
+      url={hovedside.heroBillede.url}
+      title={hovedside.overskrift}
+      text={hovedside.underoverskrift}
+      href={hovedside.ctaLink}
+      buttonText={hovedside.ctaTekst}
       />}
+      {hovedside.blokke.map(({ id, __typename, overskrift, tekst }) => (
+        __typename === 'Tekst' ?
+          <Tekst
+            key={id}
+            overskrift={overskrift}
+            html={tekst.html}
+          />
+        :
+        <></>
+      ))}
       <section className={scss.wrapper}>
         <h2>Seneste artikler</h2>
         <div className={scss.artikler}>
