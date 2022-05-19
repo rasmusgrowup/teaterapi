@@ -55,15 +55,11 @@
 .textWrapper {
   bottom: 0;
   color: var(--white);
-  max-width: 90%;
+  max-width: 100%;
   padding: 2rem;
   position: absolute;
   text-align: left;
   z-index: 1;
-
-  @media (min-width: $m) {
-    max-width: 85%;
-  }
 
   h2,
   h3,

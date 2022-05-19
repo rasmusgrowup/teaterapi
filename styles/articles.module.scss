@@ -7,7 +7,7 @@
   position: relative;
 
   @media (min-width: $m) {
-    min-height: 520px;
+    min-height: 460px;
   }
 
   &::after {
@@ -15,7 +15,7 @@
     bottom: 0;
     content: '';
     left: 0;
-    opacity: 0.5;
+    opacity: 0.2;
     position: absolute;
     top: 0;
     right: 0;
@@ -81,7 +81,7 @@
 }
 
 .imageWrapper {
-  border-radius: $radius;
+  //border-radius: $radius;
   display: flex;
   overflow: hidden;
   position: relative;

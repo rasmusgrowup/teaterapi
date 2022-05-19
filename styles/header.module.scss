@@ -36,16 +36,18 @@
 
 .button {
   align-items: center;
+  background-color: var(--sand);
   border: 1px solid var(--sand);
+  color: var(--dark);
   display: inline-flex;
   height: 2.4rem;
   padding: 0 1rem;
 }
 
 .button:hover {
-  background-color: var(--sand);
+  background-color: transparent;
   border: 1px solid var(--sand);
-  color: var(--dark);
+  color: var(--sand);
 }
 
 .menuOpenButton {

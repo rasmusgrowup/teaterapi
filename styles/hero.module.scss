@@ -7,7 +7,7 @@
   position: relative;
 
   @media (min-width: $m) {
-    min-height: 520px;
+    min-height: 460px;
   }
 
   &::after {
@@ -18,7 +18,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    opacity: 0.5;
+    opacity: 0.25;
     z-index: 1;
   }
 }
@@ -31,6 +31,10 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+}
+
+.imageWrapper {
+  filter: contrast(70%);
 }
 
 .content {
@@ -69,7 +73,9 @@
 
 .button {
   align-items: center;
+  background-color: var(--sand);
   border: 1px solid var(--sand);
+  color: var(--dark);
   display: inline-flex;
   font-size: 0.8em;
   height: 2.5rem;
@@ -78,9 +84,9 @@
 }
 
 .button:hover {
-  background-color: var(--sand);
+  background-color: transparent;
   border: 1px solid var(--sand);
-  color: var(--dark);
+  color: var(--sand);
 }
 
 .video {

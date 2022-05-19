@@ -103,18 +103,17 @@ export default function Artikler({ hovedside, artikler }) {
       <section className={scss.wrapper}>
         <h2>Seneste artikler</h2>
         <div className={scss.artikler}>
-        { artikler.map(({ id, billede, slug, titel, underoverskrift }) => (
-          <Link href={`/artikler/${slug}`} key={id}><a>
-            <div className={scss.artikel}>
-              <div className={scss.imageWrapper}><Image src={billede.url} objectFit='cover' width='400' height='400'/></div>
-              <div className={scss.artikelTekst}>
-                <h2>{titel}</h2>
-                <p>{underoverskrift[0]}</p>
-                <span>Læs mere</span>
+          { artikler.map(({ id, billede, slug, titel, underoverskrift }) => (
+            <Link href={`/artikler/${slug}`} key={id}><a>
+              <div className={scss.artikel}>
+                <div className={scss.imageWrapper}><Image src={billede.url} objectFit='cover' width='400' height='400'/></div>
+                <div className={scss.artikelTekst}>
+                  <h2>{titel}</h2>
+                  <p>{underoverskrift[0]}</p>
+                </div>
               </div>
-            </div>
-          </a></Link>
-        ))}
+            </a></Link>
+          ))}
         </div>
       </section>
     </>
