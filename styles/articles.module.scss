@@ -69,6 +69,8 @@
 }
 
 .artikel {
+  background-color: var(--clay);
+  height: 100%;
   transition: 0.3s;
   transition-property: transform;
 
@@ -87,6 +89,10 @@
   position: relative;
 }
 
+.artikelLink span {
+  margin-right: 0.25rem;
+}
+
 .artikelLink:hover {
   cursor: pointer;
   text-decoration: underline;
@@ -94,6 +100,16 @@
 
 .title {
   font-size: max(4vw, 36px);
+}
+
+.artikelTekst {
+  padding: 2rem;
+  text-align: left;
+
+  h2 {
+    font-size: 1.75em;
+    margin: 0;
+  }
 }
 
 .articleTitel {
@@ -138,6 +154,7 @@
 
   p {
     margin: 0.75rem 0;
+    text-align: justify;
   }
 
   ul {
@@ -147,9 +164,16 @@
   blockquote {
     border-left: 1px solid #B3896D;
     color: #B3896D;
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-family: 'Cormorant', serif;
     margin: 2rem auto;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
     padding-left: 1rem;
+    text-align: left;
+
+    @media (max-width: $m) {
+      margin-left: 0;
+    }
   }
 }

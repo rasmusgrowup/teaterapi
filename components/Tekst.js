@@ -4,8 +4,10 @@ function Tekst({ overskrift, html }) {
   return (
     <>
       <section className={scss.wrapper}>
-        <h2>{overskrift}</h2>
-        <div dangerouslySetInnerHTML={{ __html: `${html}` }}></div>
+        <div className={scss.inner}>
+          <h2>{overskrift}</h2>
+          <div dangerouslySetInnerHTML={{ __html: `${html}` }}></div>
+        </div>
       </section>
     </>
   )

@@ -7,7 +7,7 @@ import scss from '../../styles/articles.module.scss'
 import { GraphQLClient } from 'graphql-request';
 
 import Tekst from '../../components/Tekst'
-
+import Chevron from '../../public/chevron_right.svg'
 import Placeholder from '../../public/placeholder.svg'
 
 const graphcms = new GraphQLClient(
@@ -110,6 +110,10 @@ export default function Artikler({ hovedside, artikler }) {
                 <div className={scss.artikelTekst}>
                   <h2>{titel}</h2>
                   <p>{underoverskrift[0]}</p>
+                  <div className={scss.artikelLink}>
+                    <span>Læs artikel</span>
+                    <Image src={Chevron} width='9' height='9'/>
+                  </div>
                 </div>
               </div>
             </a></Link>
