@@ -96,6 +96,7 @@ export async function getStaticProps() {
             ... on Tekst {
               id
               overskrift
+              baggrundsfarve
               tekst {
                 html
               }
@@ -150,6 +151,8 @@ export async function getStaticProps() {
 }
 
 export default function Home({ hovedside, artikler }) {
+  console.log({ hovedside })
+
   return (
     <>
       { hovedside.seo &&
@@ -176,7 +179,7 @@ export default function Home({ hovedside, artikler }) {
         buttonText={hovedside.ctaTekst}
         />
       }
-      {hovedside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
+      {hovedside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, citater, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
@@ -204,6 +207,7 @@ export default function Home({ hovedside, artikler }) {
           :
           __typename === 'Tekst' ?
             <Tekst
+              bg={baggrundsfarve}
               key={id}
               overskrift={overskrift}
               html={tekst.html}

@@ -1,7 +1,7 @@
 @import 'sizes.scss';
 
 .wrapper {
-  background-color: var(--clay);
+  background-color: var(--sand);
   //text-align: center;
 }
 
@@ -9,4 +9,5 @@
   margin: 0 auto;
   max-width: $m;
   padding: 6rem 1rem;
+  text-align: justify;
 }

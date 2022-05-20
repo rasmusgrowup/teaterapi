@@ -1,9 +1,9 @@
 import scss from '../styles/tekst.module.scss'
 
-function Tekst({ overskrift, html }) {
+function Tekst({ overskrift, html, bg }) {
   return (
     <>
-      <section className={scss.wrapper}>
+      <section className={scss.wrapper} style={{ backgroundColor: `${ bg ? `${bg}` : '' }`}}>
         <div className={scss.inner}>
           <h2>{overskrift}</h2>
           <div dangerouslySetInnerHTML={{ __html: `${html}` }}></div>
