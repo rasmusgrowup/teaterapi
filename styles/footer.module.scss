@@ -1,7 +1,7 @@
 @import 'sizes.scss';
 
 .main {
-  background-color: var(--sand);
+  background-color: var(--clay);
   color: var(--dark);
   display: flex;
   flex-direction: column;
@@ -19,6 +19,14 @@
 .top {
   margin: 0 auto;
   max-width: 600px;
+}
+
+.socials {
+  margin-top: 1rem;
+}
+
+.socials a {
+  margin: 0 0.25rem;
 }
 
 .middle {
@@ -49,7 +57,7 @@
   opacity: 0.25;
 }
 
-.policy:hover {
+.policy a:hover {
   text-decoration: underline;
   opacity: 1;
 }

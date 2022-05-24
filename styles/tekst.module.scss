@@ -8,6 +8,13 @@
 .inner {
   margin: 0 auto;
   max-width: $m;
-  padding: 6rem 1rem;
-  text-align: justify;
+  padding: 3rem 1rem;
+
+  @media (max-width: $m) {
+    padding: 2rem 1rem;
+  }
+
+  p {
+    text-align: justify;
+  }
 }

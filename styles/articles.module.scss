@@ -41,9 +41,13 @@
 
 // artikel-oversigt //
 .wrapper {
-  margin: 6rem auto;
+  margin: 4rem auto;
   text-align: center;
   padding: 0 1rem;
+
+  @media (min-width: $m) {
+    margin: 3rem auto;
+  }
 }
 
 .artikler {

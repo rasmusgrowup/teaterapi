@@ -43,12 +43,10 @@ export async function getStaticProps({ params }) {
           ... on CitatBeholder {
             id
             overskrift
-            citater {
+            testimonials {
               id
               navn
-              tekst {
-                html
-              }
+              citat
             }
           }
           ... on KortBeholder {
@@ -84,6 +82,7 @@ export async function getStaticProps({ params }) {
           ... on Tekst {
             id
             overskrift
+            baggrundsfarve
             tekst {
               html
             }
@@ -195,7 +194,7 @@ function Side({ landingsside }) {
       href={landingsside.ctaLink}
       buttonText={landingsside.ctaTekst}
       />}
-      {landingsside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, titel, citater, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
+      {landingsside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, testimonials, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
@@ -226,14 +225,15 @@ function Side({ landingsside }) {
           __typename === 'Tekst' ?
             <Tekst
               key={id}
+              bg={baggrundsfarve}
               overskrift={overskrift}
               html={tekst.html}
             />
           :
           __typename === 'CitatBeholder' ?
             <Citater overskrift={overskrift} key={id}>
-              {citater.map(({navn, tekst}) => (
-                <Citat tekst={tekst.html} navn={navn} key={id}/>
+              {testimonials.map(({navn, citat}) => (
+                <Citat citat={citat} navn={navn} key={id}/>
               ))}
             </Citater>
           :

@@ -94,7 +94,7 @@
   width: 320px;
 
   @media (min-width: $l) {
-    display: none;
+    display: none !important;
   }
 
   .menuListMobile {
@@ -103,8 +103,15 @@
     font-weight: bold;
     line-height: 1.5;
     margin-bottom: 1.5rem;
-    margin-top: 6rem;
+    margin-top: 4rem;
     padding: 1rem;
+
+    ul {
+      list-style: none;
+      line-height: 2;
+      font-weight: normal;
+      padding: 0.25rem 1rem;
+    }
   }
 }
 

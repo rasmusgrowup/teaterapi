@@ -31,7 +31,7 @@ export default function Header() {
             <span></span>
             <span></span>
           </div>
-          <div onClick={toggleFunction}><Menu addClass={scss.menuListMobile}/></div>
+          <div><Menu addClass={scss.menuListMobile}/></div> 
         </div>
       </header>
     </>

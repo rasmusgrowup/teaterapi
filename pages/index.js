@@ -56,12 +56,10 @@ export async function getStaticProps() {
             ... on CitatBeholder {
               id
               overskrift
-              citater {
+              testimonials {
                 id
                 navn
-                tekst {
-                  html
-                }
+                citat
               }
             }
             ... on KortBeholder {
@@ -179,7 +177,7 @@ export default function Home({ hovedside, artikler }) {
         buttonText={hovedside.ctaTekst}
         />
       }
-      {hovedside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, citater, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
+      {hovedside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, testimonials, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
@@ -215,8 +213,8 @@ export default function Home({ hovedside, artikler }) {
           :
           __typename === 'CitatBeholder' ?
             <Citater overskrift={overskrift} key={id}>
-              {citater.map(({navn, tekst}) => (
-                <Citat tekst={tekst.html} navn={navn} key={id}/>
+              {testimonials.map(({navn, citat}) => (
+                <Citat citat={citat} navn={navn} key={id}/>
               ))}
             </Citater>
           :
