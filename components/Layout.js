@@ -6,7 +6,6 @@ import Footer from '../components/Footer'
 import Meta from '../components/Meta'
 import scss from '../styles/layout.module.scss'
 import { useEffect } from 'react'
-import Script from 'next/script'
 
 export default function Layout({children}) {
   useEffect (() => {
@@ -18,17 +17,6 @@ export default function Layout({children}) {
 
   return (
     <>
-      <Script
-      id="mailchimp_script"
-      onError={(e) => {
-        console.error('Script failed to load', e)
-      }}
-      dangerouslySetInnerHTML={{
-          __html: `
-          !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/afa7bafb8da9deb3bd242c3f0/fcfc769ee2bf84697a81293cb.js");
-          `
-        }}
-      />
       <Meta />
       <Header />
       <main className={scss.main}>{children}</main>
