@@ -8,9 +8,6 @@ import scss from '../styles/layout.module.scss'
 import { useEffect } from 'react'
 import Script from 'next/script'
 
-// Assets
-import CloseIcon from '../public/CloseIcon.png'
-
 export default function Layout({children}) {
   useEffect (() => {
     if (window.sessionStorage.getItem("visited") === null) {
