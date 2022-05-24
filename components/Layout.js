@@ -22,7 +22,10 @@ export default function Layout({children}) {
   return (
     <>
       <Script
-      id="mailchimp_script",
+      id="mailchimp_script"
+      onError={(e) => {
+        console.error('Script failed to load', e)
+      }}
       dangerouslySetInnerHTML={{
           __html: `
           !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/afa7bafb8da9deb3bd242c3f0/fcfc769ee2bf84697a81293cb.js");
