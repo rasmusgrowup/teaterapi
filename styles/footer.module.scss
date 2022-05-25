@@ -21,14 +21,6 @@
   max-width: 600px;
 }
 
-.socials {
-  margin-top: 1rem;
-}
-
-.socials a {
-  margin: 0 0.25rem;
-}
-
 .middle {
   margin: 2rem auto;
 }
@@ -50,11 +42,19 @@
     flex-direction: row;
     line-height: 1;
   }
+
+  .socials {
+    border-left-color: var(--dark);
+  }
+
+  .socials a svg path {
+    fill: var(--dark);
+  }
 }
 
 .policy {
   margin-bottom: 1rem;
-  opacity: 0.25;
+  opacity: 0.5;
 }
 
 .policy a:hover {

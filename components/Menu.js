@@ -1,4 +1,5 @@
 import scss from '../styles/menu.module.scss'
+import footerStyling from '../styles/footer.module.scss'
 
 // Imports
 import Link from 'next/link'
@@ -64,7 +65,7 @@ export default function Menu({ addClass, footer }) {
         <li onClick={toggleFunction}><Link href='/det-kaerlige-brusebad'><a>Det Kærlige Brusebad</a></Link></li>
         <li onClick={toggleFunction}><Link href='/om-maria'><a>Om Maria</a></Link></li>
         <li onClick={toggleFunction}><Link href='/artikler'><a>Artikler</a></Link></li>
-        <div className={scss.socials}>
+        <div className={`${scss.socials} ${footerStyling.socials}`}>
           <Link href='https://www.instagram.com/marias_rum/'>
             <a className='link' target='_blank'>
               <InstaIcon/><span>Instagram</span>

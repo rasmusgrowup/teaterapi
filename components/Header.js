@@ -19,7 +19,7 @@ export default function Header() {
         </div>
         <div className={scss.menuWrapper}>
           <div className={scss.desktopMenu}><Menu addClass={scss.menuListDesktop}/></div>
-          <div><Link href='/'><a className={scss.button}>Book her</a></Link></div>
+          <div><Link href='https://system.easypractice.net/book/marias-rum'><a className={scss.button}>Book her</a></Link></div>
           <div className={scss.menuOpenButton} onClick={toggleFunction}>
             <span></span>
             <span></span>
@@ -31,7 +31,7 @@ export default function Header() {
             <span></span>
             <span></span>
           </div>
-          <div><Menu addClass={scss.menuListMobile}/></div> 
+          <div><Menu addClass={scss.menuListMobile}/></div>
         </div>
       </header>
     </>
