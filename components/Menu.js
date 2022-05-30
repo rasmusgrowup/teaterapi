@@ -44,28 +44,32 @@ export default function Menu({ addClass, footer }) {
   return(
     <>
       <ul className={`${scss.list} ${addClass}`}>
-        <div className={scss.dropdownContainer}>
-          <div className={scss.dropdownLink} onClick={toggleDropdown}>
-            <span>Kropsterapi</span>
-            <div style={{ display: `${ footer ? 'none' : 'inline-block' }`}}><ChevronDown /></div>
-          </div>
-          <div className={`${scss.dropdown} ${ openDropdown ? `${scss.dropdownOpened}` : ''}`} style={{ display: `${ footer ? 'none' : '' }`}}>
-            <ul>
-              <li className={scss.dropdownTop}>
-                <Link href='/kropsterapi'><a>
-                  Generelt
-                </a></Link>
-              </li>
-              { data.kropsterapiUndersider.map((underside) => (
-                <li key={underside.adresse} onClick={toggleFunction}>
-                  <Link href={`/kropsterapi/${underside.adresse}`}>
-                    <a>{underside.titel}</a>
-                  </Link>
+        { footer ?
+          <li><Link href='/kropsterapi'><a>Kropsterapi</a></Link></li>
+          :
+          <div className={scss.dropdownContainer}>
+            <div className={scss.dropdownLink} onClick={toggleDropdown}>
+              <span>Kropsterapi</span>
+              <div style={{ display: `${ footer ? 'none' : 'inline-block' }`}}><ChevronDown /></div>
+            </div>
+            <div className={`${scss.dropdown} ${ openDropdown ? `${scss.dropdownOpened}` : ''}`} style={{ display: `${ footer ? 'none' : '' }`}}>
+              <ul>
+                <li className={scss.dropdownTop}>
+                  <Link href='/kropsterapi'><a>
+                    Generelt
+                  </a></Link>
                 </li>
-              ))}
-            </ul>
+                { data.kropsterapiUndersider.map((underside) => (
+                  <li key={underside.adresse} onClick={toggleFunction}>
+                    <Link href={`/kropsterapi/${underside.adresse}`}>
+                      <a>{underside.titel}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
+        }
         <li onClick={toggleFunction}><Link href='/manuvision-traening'><a>ManuVision Træning</a></Link></li>
         <li onClick={toggleFunction}><Link href='/det-kaerlige-brusebad'><a>Det Kærlige Brusebad</a></Link></li>
         <li onClick={toggleFunction}><Link href='/om-maria'><a>Om Maria</a></Link></li>

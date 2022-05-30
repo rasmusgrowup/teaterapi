@@ -104,7 +104,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
 
-  @media (max-width: $m) {
+  @media (max-width: $l) {
     border: 0;
     margin-top: 2rem;
     padding: 0;
@@ -116,7 +116,7 @@
     @media (max-width: $m) {
       align-items: center;
       display: flex;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 2;
       text-decoration: none;
     }

@@ -38,6 +38,13 @@
   flex-direction: column;
   line-height: 2;
 
+  @media (max-width: $l) {
+    li,
+    .dropdownContainer {
+      margin-right: 0;
+    }
+  }
+
   @media (min-width: $l) {
     flex-direction: row;
     line-height: 1;
@@ -45,6 +52,10 @@
 
   .socials {
     border-left-color: var(--dark);
+
+    @media (max-width: $l) {
+      border: none;
+    }
   }
 
   .socials a svg path {
