@@ -118,7 +118,7 @@ export async function getStaticProps({ params }) {
           metaTags
           metaTitel
         }
-        artikler(first: 3) {
+        artikler(first: 3) { 
           id
           titel
           slug

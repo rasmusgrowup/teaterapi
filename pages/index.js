@@ -124,16 +124,16 @@ export async function getStaticProps() {
             metaTags
             metaTitel
           }
-        }
-        artikler(first: 3) {
-          id
-          titel
-          underoverskrift
-          slug
-          billede {
-            height
-            url
-            width
+          artikler(first: 3) {
+            id
+            titel
+            underoverskrift
+            slug
+            billede {
+              height
+              url
+              width
+            }
           }
         }
       }
@@ -142,13 +142,12 @@ export async function getStaticProps() {
 
   return {
     props: {
-      hovedside,
-      artikler
+      hovedside
     }
   }
 }
 
-export default function Home({ hovedside, artikler }) {
+export default function Home({ hovedside }) {
   console.log({ hovedside })
 
   return (
@@ -231,7 +230,7 @@ export default function Home({ hovedside, artikler }) {
           <></>
       ))}
       <Articles overskrift='Seneste artikler'>
-        {artikler.map(({ id, titel, underoverskrift, slug, billede}) => (
+        {hovedside.artikler.map(({ id, titel, underoverskrift, slug, billede}) => (
           <Article
             key={id}
             overskrift={titel}

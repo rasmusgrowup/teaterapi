@@ -18,6 +18,7 @@ export async function getStaticProps({ params }) {
     query ArtikelQuery($slug: String!) {
       artikel(where: { slug: $slug}) {
         createdAt
+        dato
         forfatter
         slug
         tags
@@ -92,7 +93,11 @@ function Artikel({ artikel }) {
         </div>
       </section>
       <section className={scss.indhold}>
-        <div className={scss.date}>Dato: {new Date(`${artikel.createdAt}`).toLocaleDateString()}</div>
+        { artikel.dato === null ?
+          <div className={scss.date}>Dato: {new Date(`${artikel.createdAt}`).toLocaleDateString()}</div>
+        :
+          <div className={scss.date}>Dato: {artikel.dato}</div>
+        }
         <div className={scss.author}>Forfatter: {artikel.forfatter}</div>
         <h2 className={scss.articleTitel}>{artikel.titel}</h2>
         <h3 className={scss.articleSubTitel}>{artikel.underoverskrift[0]}</h3>

@@ -4,7 +4,7 @@
 .articles {
   margin: 3rem auto 1rem;
   text-align: center;
-  padding: 0 1.25rem 1.5rem;
+  padding: 0 1rem 1.5rem;
 
   @media (min-width: $m) {
     margin: 3rem auto;
@@ -48,7 +48,7 @@
   @media (max-width: $m) {
     display: block;
     margin: 2rem auto;
-    padding: 1.25rem;
+    padding: 1rem;
   }
 
   .textBox,
