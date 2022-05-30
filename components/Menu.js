@@ -51,6 +51,11 @@ export default function Menu({ addClass, footer }) {
           </div>
           <div className={`${scss.dropdown} ${ openDropdown ? `${scss.dropdownOpened}` : ''}`} style={{ display: `${ footer ? 'none' : '' }`}}>
             <ul>
+              <li className={scss.dropdownTop}>
+                <Link href='/kropsterapi'><a>
+                  Generelt
+                </a></Link>
+              </li>
               { data.kropsterapiUndersider.map((underside) => (
                 <li key={underside.adresse} onClick={toggleFunction}>
                   <Link href={`/kropsterapi/${underside.adresse}`}>

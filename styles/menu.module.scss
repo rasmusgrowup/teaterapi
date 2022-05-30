@@ -57,6 +57,11 @@
     }
   }
 
+  .dropdownTop {
+    border-bottom: 1px solid var(--dark);
+    margin-bottom: 0.25rem;
+  }
+
   .dropdownContainer:hover .dropdown {
     display: block;
     visibility: visible;
