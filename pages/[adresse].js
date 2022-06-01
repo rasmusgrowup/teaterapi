@@ -15,7 +15,6 @@ import Tekst from '../components/Tekst'
 import Section from '../components/Section'
 import Citater from '../components/Citater'
 import Citat from '../components/Citat'
-import Mailchimp from '../components/Mailchimp'
 import Priser from '../components/Priser'
 import Pris from '../components/Pris'
 
@@ -87,14 +86,6 @@ export async function getStaticProps({ params }) {
               html
             }
           }
-          ... on Mailchimp {
-            id
-            mailchimpOverskrift
-            mailchimpTekst {
-              html
-            }
-            mailchimpUrl
-          }
           ... on PrisBeholder {
             id
             priserOverskrift
@@ -118,7 +109,7 @@ export async function getStaticProps({ params }) {
           metaTags
           metaTitel
         }
-        artikler(first: 3) { 
+        artikler(first: 3) {
           id
           titel
           slug
@@ -194,7 +185,7 @@ function Side({ landingsside }) {
       href={landingsside.ctaLink}
       buttonText={landingsside.ctaTekst}
       />}
-      {landingsside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, testimonials, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
+      {landingsside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, testimonials, priserOverskrift, priser }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
@@ -236,9 +227,6 @@ function Side({ landingsside }) {
                 <Citat citat={citat} navn={navn} key={id}/>
               ))}
             </Citater>
-          :
-          __typename === 'Mailchimp' ?
-            <Mailchimp overskrift={mailchimpOverskrift} html={mailchimpTekst.html} url={mailchimpUrl} />
           :
           __typename === 'PrisBeholder' ?
             <Priser overskrift={priserOverskrift}>

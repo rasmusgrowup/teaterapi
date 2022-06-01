@@ -6,14 +6,16 @@ import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 // a basic form
 const CustomForm = ({ status, message, onValidated }) => {
-  let email, fname;
+  let email, fname, lname;
   const submit = () =>
     email &&
     fname &&
+    lname &&
     email.value.indexOf("@") > -1 &&
     onValidated({
       EMAIL: email.value,
-      FNAME: fname.value
+      FNAME: fname.value,
+      LNAME: lname.value
     });
 
   return (
@@ -25,6 +27,11 @@ const CustomForm = ({ status, message, onValidated }) => {
         ref={node => (fname = node)}
         type="text"
         placeholder="Fornavn"
+      />
+      <input
+        ref={node => (lname = node)}
+        type="text"
+        placeholder="Efternavn"
       />
       <input
         ref={node => (email = node)}
@@ -39,12 +46,13 @@ const CustomForm = ({ status, message, onValidated }) => {
   );
 };
 
-export default function Mailchimp({ overskrift, html, url }) {
+export default function Mailchimp() {
+  const url = 'https://gmail.us14.list-manage.com/subscribe?u=afa7bafb8da9deb3bd242c3f0&id=8b33abd27d'
+
   return (
     <>
       <section className={scss.wrapper}>
-        <h2>{overskrift}</h2>
-        <div dangerouslySetInnerHTML={{ __html: `${html}` }}></div>
+        <h2>Mailchimp</h2>
         <MailchimpSubscribe url={url} render={({ subscribe, status, message }) => (
           <div className={scss.container}>
             <CustomForm

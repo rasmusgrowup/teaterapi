@@ -17,7 +17,6 @@ import Citater from '../components/Citater'
 import Citat from '../components/Citat'
 import Tekst from '../components/Tekst'
 import Section from '../components/Section'
-import Mailchimp from '../components/Mailchimp'
 import Priser from '../components/Priser'
 import Pris from '../components/Pris'
 
@@ -99,14 +98,6 @@ export async function getStaticProps() {
                 html
               }
             }
-            ... on Mailchimp {
-              id
-              mailchimpOverskrift
-              mailchimpTekst {
-                html
-              }
-              mailchimpUrl
-            }
             ... on PrisBeholder {
               id
               priserOverskrift
@@ -176,7 +167,7 @@ export default function Home({ hovedside }) {
         buttonText={hovedside.ctaTekst}
         />
       }
-      {hovedside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, testimonials, mailchimpOverskrift, mailchimpTekst, mailchimpUrl, priserOverskrift, priser }) => (
+      {hovedside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, testimonials, priserOverskrift, priser }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
@@ -216,9 +207,6 @@ export default function Home({ hovedside }) {
                 <Citat citat={citat} navn={navn} key={id}/>
               ))}
             </Citater>
-          :
-          __typename === 'Mailchimp' ?
-            <Mailchimp overskrift={mailchimpOverskrift} html={mailchimpTekst.html} url={mailchimpUrl} key={id}/>
           :
           __typename === 'PrisBeholder' ?
             <Priser overskrift={priserOverskrift} key={id}>

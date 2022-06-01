@@ -45,3 +45,31 @@
 .form input::placeholder {
   color: var(--lightDark)
 }
+
+.newsletter {
+  align-items: center;
+  background-color: var(--dark);
+  color: var(--sand);
+  display: flex;
+  height: 300px;
+  margin-top: 6rem;
+
+  .inner {
+    margin-inline: auto;
+    max-width: $m;
+    text-align: center;
+    width: 100%;
+
+    p {
+      font-weight: 300;
+    }
+  }
+
+  .signUpButton {
+    background-color: var(--sand);
+    color: var(--dark);
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+  }
+}

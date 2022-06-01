@@ -3,6 +3,7 @@ import Header from '../components/Header'
 
 // Components
 import Footer from '../components/Footer'
+import Newsletter from '../components/Newsletter'
 import Meta from '../components/Meta'
 import scss from '../styles/layout.module.scss'
 import { useEffect } from 'react'
@@ -20,6 +21,7 @@ export default function Layout({children}) {
       <Meta />
       <Header />
       <main className={scss.main}>{children}</main>
+      <Newsletter />
       <Footer />
     </>
   )
