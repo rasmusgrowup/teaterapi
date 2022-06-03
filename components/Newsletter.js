@@ -9,6 +9,7 @@ export default function Newsletter() {
   const { data, error } = useSWR(`
     query FooterContent {
       footer(where: {footerType: Generel}) {
+        overskriftTilNyhedsbrev
         tekstTilNyhedsbrev {
           html
         }
@@ -24,9 +25,9 @@ export default function Newsletter() {
     <>
       <section className={scss.newsletter}>
         <div className={scss.inner}>
-          <h2>Følg med i Marias Rum</h2>
+          <h2>{data.footer.overskriftTilNyhedsbrev}</h2>
           <div dangerouslySetInnerHTML={{ __html: `${data.footer.tekstTilNyhedsbrev.html}` }}></div>
-          <Link href='https://gmail.us14.list-manage.com/subscribe?u=afa7bafb8da9deb3bd242c3f0&id=8b33abd27d'><a className={scss.signUpButton} target='_blank'>Gå til formular</a></Link>
+          <Link href='https://gmail.us14.list-manage.com/subscribe?u=afa7bafb8da9deb3bd242c3f0&id=8b33abd27d'><a className={scss.signUpButton} target='_blank'>Tilmeld dig her</a></Link>
         </div>
       </section>
     </>

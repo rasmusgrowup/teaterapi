@@ -91,7 +91,9 @@ export async function getStaticProps({ params }) {
             priserOverskrift
             priser {
               id
-              beskrivelse
+              beskrivelse {
+                html
+              }
               pris
               ydelse
               prisLink
@@ -185,12 +187,27 @@ function Side({ landingsside }) {
       href={landingsside.ctaLink}
       buttonText={landingsside.ctaTekst}
       />}
-      {landingsside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, testimonials, priserOverskrift, priser }) => (
+      {landingsside.blokke.map(({
+        id,
+        __typename,
+        overskrift,
+        kort,
+        billede,
+        layout,
+        sektionLink,
+        sektionLinkTekst,
+        tekst,
+        baggrundsfarve,
+        titel,
+        testimonials,
+        priserOverskrift,
+        priser
+      }) => (
           __typename === 'KortBeholder' ?
-          <Categories overskrift={overskrift} key={id}>
+          <Categories overskrift={overskrift} key={overskrift}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
               <Card
-                key={id}
+                key={overskrift}
                 src={billede.url}
                 width={billede.width}
                 height={billede.height}
@@ -204,7 +221,7 @@ function Side({ landingsside }) {
           :
           __typename === 'Sektion' ?
             <Section
-              key={id}
+              key={titel}
               src={billede.url}
               layout={layout}
               titel={titel}
@@ -215,23 +232,23 @@ function Side({ landingsside }) {
           :
           __typename === 'Tekst' ?
             <Tekst
-              key={id}
+              key={overskrift}
               bg={baggrundsfarve}
               overskrift={overskrift}
               html={tekst.html}
             />
           :
           __typename === 'CitatBeholder' ?
-            <Citater overskrift={overskrift} key={id}>
-              {testimonials.map(({navn, citat}) => (
+            <Citater overskrift={overskrift} key={overskrift}>
+              {testimonials.map(({navn, citat, id}) => (
                 <Citat citat={citat} navn={navn} key={id}/>
               ))}
             </Citater>
           :
           __typename === 'PrisBeholder' ?
-            <Priser overskrift={priserOverskrift}>
+            <Priser overskrift={priserOverskrift} key={priserOverskrift}>
               {priser.map(({ id, ydelse, beskrivelse, pris, prisLink}) => (
-                <Pris key={id} ydelse={ydelse} beskrivelse={beskrivelse} pris={pris} href={prisLink}/>
+                <Pris key={id} ydelse={ydelse} beskrivelse={beskrivelse.html} pris={pris} href={prisLink}/>
               ))}
             </Priser>
           :

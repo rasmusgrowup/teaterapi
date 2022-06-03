@@ -6,7 +6,7 @@ import Menu from '../components/Menu'
 import React, { useContext } from 'react'
 import { MenuContext } from "../lib/menuContext"
 
-import Logo from '../public/logo.svg'
+import Logo from '../public/logo_sand.svg'
 
 export default function Header() {
   const { toggle, toggleFunction } = useContext(MenuContext);

@@ -5,6 +5,7 @@
   min-height: 400px;
   overflow: hidden;
   position: relative;
+  width: 100%;
 
   @media (min-width: $m) {
     min-height: 460px;
@@ -34,7 +35,23 @@
 }
 
 .imageWrapper {
-  filter: contrast(70%);
+  -webkit-filter: contrast(0.7);
+  -ms-filter: contrast(0.7);
+  -o-filter: contrast(0.7);
+  bottom: 0;
+  filter: contrast(0.7);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.imageContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .content {

@@ -56,7 +56,7 @@ export default function Menu({ addClass, footer }) {
               <ul>
                 <li className={scss.dropdownTop}>
                   <Link href='/kropsterapi'><a>
-                    Generelt
+                    ManuVision Kropsterapi
                   </a></Link>
                 </li>
                 { data.kropsterapiUndersider.map((underside) => (

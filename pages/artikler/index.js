@@ -18,7 +18,7 @@ export async function getServerSideProps() {
   const { hovedside, artikler } = await graphcms.request(
     `
       query ArtiklerQuery {
-        artikler {
+        artikler(orderBy: createdAt_DESC) {
           id
           slug
           billede {
@@ -77,7 +77,8 @@ export default function Artikler({ hovedside, artikler }) {
           <meta name="keywords" content={hovedside.seo.metaTags} key='keywords' />
         </Head>
       }
-      { hovedside.heroBillede.mimeType != 'video/mp4' ? <Hero
+      { hovedside.heroBillede.mimeType != 'video/mp4' ?
+      <Hero
         src={hovedside.heroBillede.url}
         title={hovedside.overskrift}
         buttonText={hovedside.ctaTekst}

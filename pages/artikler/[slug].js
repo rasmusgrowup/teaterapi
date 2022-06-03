@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Hero from '../../components/Hero'
 import Akvarel from '../../public/Akvarel.png'
 import scss from '../../styles/articles.module.scss'
 import { useRouter } from 'next/router'
@@ -22,6 +23,9 @@ export async function getStaticProps({ params }) {
         forfatter
         slug
         tags
+        links {
+          html
+        }
         seo {
           metaTitel
           metaBeskrivelse
@@ -87,7 +91,11 @@ function Artikel({ artikel }) {
         </Head>
       }
       <section className={scss.hero}>
-        <div><Image src={artikel.billede.url} layout='fill' quality='100' objectFit='cover' objectPosition='center' priority='true' /></div>
+        <div className={scss.articleImageWrapper}>
+          <div className={scss.articleImageContainer}>
+            <Image src={artikel.billede.url} layout='fill' quality='100' objectFit='cover' objectPosition='center' priority='true' />
+          </div>
+        </div>
         <div className={scss.content}>
           <h1 className={scss.title}>{artikel.titel}</h1>
         </div>
@@ -102,6 +110,15 @@ function Artikel({ artikel }) {
         <h2 className={scss.articleTitel}>{artikel.titel}</h2>
         <h3 className={scss.articleSubTitel}>{artikel.underoverskrift[0]}</h3>
         <div dangerouslySetInnerHTML={{ __html: artikel.indhold.html }}></div>
+      </section>
+      <section className={scss.links}>
+        { artikel.links.html !== null &&
+        <div className={scss.linksInner}>
+          { artikel.links.map((link) => (
+            <div className={scss.linksLink} dangerouslySetInnerHTML={{ __html: link.html }}></div>
+          ))}
+        </div>
+      }
       </section>
     </>
   )

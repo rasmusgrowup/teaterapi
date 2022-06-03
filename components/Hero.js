@@ -7,7 +7,10 @@ function Hero({title, smallTitle, src, buttonText, href}) {
   return(
     <>
       <section className={scss.wrapper}>
-        <div className={scss.imageWrapper}><Image src={src} layout='fill' quality='100' objectFit='cover' objectPosition='center' priority='true'/></div>
+        <div className={scss.imageWrapper}>
+          <div className={scss.imageContainer}><Image src={src} layout='fill' quality='100' objectFit='cover' objectPosition='center' priority='true'/>
+          </div>
+        </div>
         <div className={scss.content}>
           <h1 className={scss.title}>{title}</h1>
           <h2 className={scss.smallTitle}>{smallTitle}</h2>

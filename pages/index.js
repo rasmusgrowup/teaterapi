@@ -103,7 +103,9 @@ export async function getStaticProps() {
               priserOverskrift
               priser {
                 id
-                beskrivelse
+                beskrivelse {
+                  html
+                }
                 pris
                 ydelse
                 prisLink
@@ -167,13 +169,30 @@ export default function Home({ hovedside }) {
         buttonText={hovedside.ctaTekst}
         />
       }
-      {hovedside.blokke.map(({ id, __typename, overskrift, kort, billede, layout, sektionLink, sektionLinkTekst, tekst, baggrundsfarve, titel, testimonials, priserOverskrift, priser }) => (
+      {hovedside.blokke.map(({
+        id,
+        __typename,
+        overskrift,
+        kort,
+        billede,
+        layout,
+        sektionLink,
+        sektionLinkTekst,
+        tekst,
+        baggrundsfarve,
+        titel,
+        testimonials,
+        priserOverskrift,
+        priser
+      }) => (
           __typename === 'KortBeholder' ?
           <Categories overskrift={overskrift} key={id}>
             {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
               <Card
                 key={id}
                 src={billede.url}
+                width={billede.width}
+                height={billede.height}
                 link={link}
                 linkTekst={linkTekst}
                 overskrift={overskrift}
@@ -184,7 +203,7 @@ export default function Home({ hovedside }) {
           :
           __typename === 'Sektion' ?
             <Section
-              key={id}
+              key={titel}
               src={billede.url}
               layout={layout}
               titel={titel}
@@ -196,14 +215,14 @@ export default function Home({ hovedside }) {
           __typename === 'Tekst' ?
             <Tekst
               bg={baggrundsfarve}
-              key={id}
+              key={overskrift}
               overskrift={overskrift}
               html={tekst.html}
             />
           :
           __typename === 'CitatBeholder' ?
             <Citater overskrift={overskrift} key={id}>
-              {testimonials.map(({navn, citat}) => (
+              {testimonials.map(({navn, citat, id}) => (
                 <Citat citat={citat} navn={navn} key={id}/>
               ))}
             </Citater>
@@ -211,7 +230,7 @@ export default function Home({ hovedside }) {
           __typename === 'PrisBeholder' ?
             <Priser overskrift={priserOverskrift} key={id}>
               {priser.map(({ id, ydelse, beskrivelse, pris, prisLink}) => (
-                <Pris key={id} ydelse={ydelse} beskrivelse={beskrivelse} pris={pris} href={prisLink}/>
+                <Pris key={id} ydelse={ydelse} beskrivelse={beskrivelse.html} pris={pris} href={prisLink}/>
               ))}
             </Priser>
           :

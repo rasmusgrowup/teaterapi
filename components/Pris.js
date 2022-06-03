@@ -10,7 +10,7 @@ export default function Pris({ ydelse, beskrivelse, pris, href }) {
       <div className={scss.pris}>
         <div>
           <h3 className={scss.ydelse}>{ydelse}</h3>
-          <p className={scss.beskrivelse}>{beskrivelse}</p>
+          <div className={scss.beskrivelse} dangerouslySetInnerHTML={{ __html: `${beskrivelse}` }}></div>
         </div>
         <div className={scss.prisen}>{pris}</div>
         <Link href={href}><a className={scss.button}>Book nu</a></Link>
