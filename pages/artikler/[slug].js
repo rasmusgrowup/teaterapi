@@ -114,8 +114,8 @@ function Artikel({ artikel }) {
       <section className={scss.links}>
         { artikel.links.html !== null &&
         <div className={scss.linksInner}>
-          { artikel.links.map((link) => (
-            <div className={scss.linksLink} dangerouslySetInnerHTML={{ __html: link.html }}></div>
+          { artikel.links.map((link, i) => (
+            <div key={i} className={scss.linksLink} dangerouslySetInnerHTML={{ __html: link.html }}></div>
           ))}
         </div>
       }
