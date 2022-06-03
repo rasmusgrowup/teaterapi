@@ -48,8 +48,7 @@
 
 .newsletter {
   align-items: center;
-  background-color: var(--dark);
-  color: var(--sand);
+  background-color: var(--green);
   display: flex;
   min-height: 300px;
   margin-top: 6rem;
@@ -69,15 +68,15 @@
   .signUpButton {
     background-color: var(--sand);
     border: 1px solid var(--sand);
-    color: var(--dark);
+    color: var(--darkGreen);
     display: inline-block;
     margin-top: 1rem;
     padding: 0.75rem 1rem;
   }
 
   .signUpButton:hover {
-    background-color: var(--dark);
-    border: 1px solid var(--sand);
-    color: var(--sand);
+    background-color: var(--green);
+    border: 1px solid var(--darkGreen);
+    color: var(--darkGreen);
   }
 }
