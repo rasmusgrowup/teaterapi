@@ -54,7 +54,7 @@ export default function Menu({ addClass, footer }) {
             </div>
             <div className={`${scss.dropdown} ${ openDropdown ? `${scss.dropdownOpened}` : ''}`} style={{ display: `${ footer ? 'none' : '' }`}}>
               <ul>
-                <li className={scss.dropdownTop}>
+                <li className={scss.dropdownTop} onClick={toggleFunction}>
                   <Link href='/kropsterapi'><a>
                     ManuVision Kropsterapi
                   </a></Link>
