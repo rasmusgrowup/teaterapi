@@ -92,6 +92,7 @@
   transition: 0.5s;
   transition-property: transform;
   width: 320px;
+  z-index: 99;
 
   @media (min-width: $l) {
     display: none !important;

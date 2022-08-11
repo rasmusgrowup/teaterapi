@@ -26,14 +26,14 @@ export default function Header() {
             <span></span>
           </div>
         </div>
-        <div className={`${scss.mobileMenu} ${ toggle == true ? `${scss.menuIsOpen}` : '' }`}>
-          <div className={scss.menuCloseButton} onClick={toggleFunction}>
-            <span></span>
-            <span></span>
-          </div>
-          <div><Menu addClass={scss.menuListMobile}/></div>
-        </div>
       </header>
+      <div className={`${scss.mobileMenu} ${ toggle == true ? `${scss.menuIsOpen}` : '' }`}>
+        <div className={scss.menuCloseButton} onClick={toggleFunction}>
+          <span></span>
+          <span></span>
+        </div>
+        <div><Menu addClass={scss.menuListMobile}/></div>
+      </div>
     </>
   )
 }
