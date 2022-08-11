@@ -66,7 +66,7 @@ export async function getServerSideProps() {
 }
 
 export default function Artikler({ hovedside, artikler }) {
-  console.log({ hovedside, artikler })
+
   return (
     <>
       {

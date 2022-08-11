@@ -156,9 +156,6 @@ export async function getStaticPaths() {
 
 function Side({ kropsterapiUnderside }) {
   const router = useRouter()
-
-  console.log({ kropsterapiUnderside })
-
   if (!router.isFallback && !kropsterapiUnderside?.adresse) {
     return <ErrorPage statusCode={404} />
   }

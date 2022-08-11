@@ -43,8 +43,6 @@ export async function getStaticProps() {
 export default function Handelsbetingelser({ politikker }) {
   const router = useRouter()
 
-  console.log({ politikker })
-
   return (
     <>
       <Hero

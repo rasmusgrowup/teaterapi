@@ -157,8 +157,6 @@ export async function getStaticPaths() {
 function Side({ landingsside }) {
   const router = useRouter()
 
-  console.log({ landingsside })
-
   if (!router.isFallback && !landingsside?.adresse) {
     return <ErrorPage statusCode={404} />
   }

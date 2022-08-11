@@ -141,8 +141,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ hovedside }) {
-  console.log({ hovedside })
-
   return (
     <>
       { hovedside.seo &&
