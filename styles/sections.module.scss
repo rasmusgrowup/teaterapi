@@ -33,7 +33,7 @@
   position: relative;
 
   @media (max-width: $m) {
-    flex-direction: column;
+    display: block;
     padding: 0;
   }
 }
