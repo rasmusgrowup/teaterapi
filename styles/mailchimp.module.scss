@@ -54,6 +54,10 @@
   margin-top: 6rem;
   padding: 3rem 1rem;
 
+  @media (max-width: $m) {
+    margin-top: 2rem;
+  }
+
   .inner {
     margin-inline: auto;
     max-width: $m;

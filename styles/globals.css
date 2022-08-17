@@ -43,6 +43,19 @@ a {
   padding-left: 1rem;
 }
 
+.articleLink a {
+  align-items: center;
+  display: flex;
+}
+
+.articleLink a::after {
+  content: url('/chevron_right.svg');
+  display: block;
+  margin-left: 0.25rem;
+  margin-top: 0.25rem;
+  transform: scale(0.5);
+}
+
 .slick-next::before,
 .slick-prev::before {
   color: var(--dark) !important;

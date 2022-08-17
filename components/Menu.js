@@ -44,6 +44,7 @@ export default function Menu({ addClass, footer }) {
   return(
     <>
       <ul className={`${scss.list} ${addClass}`}>
+          <li><Link href='/'><a className={scss.homeLink}>Forside</a></Link></li>
         { footer ?
           <li><Link href='/kropsterapi'><a>Kropsterapi</a></Link></li>
           :
@@ -70,10 +71,19 @@ export default function Menu({ addClass, footer }) {
             </div>
           </div>
         }
-        <li onClick={toggleFunction}><Link href='/manuvision-traening'><a>ManuVision Træning</a></Link></li>
-        <li onClick={toggleFunction}><Link href='/det-kaerlige-brusebad'><a>Det Kærlige Brusebad</a></Link></li>
-        <li onClick={toggleFunction}><Link href='/om-maria'><a>Om Maria</a></Link></li>
-        <li onClick={toggleFunction}><Link href='/artikler'><a>Artikler</a></Link></li>
+        { footer ? <>
+            <li><Link href='/manuvision-traening'><a>ManuVision Træning</a></Link></li>
+              <li><Link href='/det-kaerlige-brusebad'><a>Det Kærlige Brusebad</a></Link></li>
+              <li><Link href='/om-maria'><a>Om Maria</a></Link></li>
+              <li><Link href='/artikler'><a>Artikler</a></Link></li>
+              </>
+              : <>
+              <li onClick={toggleFunction}><Link href='/manuvision-traening'><a>ManuVision Træning</a></Link></li>
+              <li onClick={toggleFunction}><Link href='/det-kaerlige-brusebad'><a>Det Kærlige Brusebad</a></Link></li>
+              <li onClick={toggleFunction}><Link href='/om-maria'><a>Om Maria</a></Link></li>
+              <li onClick={toggleFunction}><Link href='/artikler'><a>Artikler</a></Link></li>
+          </>
+        }
         <div className={`${scss.socials} ${footerStyling.socials}`}>
           <Link href='https://www.instagram.com/marias_rum/'>
             <a className='link' target='_blank'>

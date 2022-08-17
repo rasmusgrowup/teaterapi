@@ -148,3 +148,11 @@
     }
   }
 }
+
+.homeLink {
+  display: none;
+
+  @media (max-width: $m) {
+    display: inherit;
+  }
+}
