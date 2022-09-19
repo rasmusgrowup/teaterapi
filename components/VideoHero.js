@@ -21,7 +21,7 @@ function VideoHero({title, url, text, buttonText, href}) {
             height='100%'
             alt=''
             >
-          <source src='https://media.graphassets.com/yrNF9puQRyQraoZz4tcA' type='video/mp4' />
+          <source src={url} type='video/mp4' />
         </video>
         <div className={scss.content}>
           <h1 className={scss.title}>{title}</h1>
