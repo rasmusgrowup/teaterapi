@@ -6,9 +6,8 @@ import Link from "next/link"
 import scss from '../../styles/articles.module.scss'
 import { GraphQLClient } from 'graphql-request';
 
-import Tekst from '../../components/Tekst'
 import Chevron from '../../public/chevron_right.svg'
-import Placeholder from '../../public/placeholder.svg'
+import SectionRenderer from "../../components/SectionRenderer";
 
 const graphcms = new GraphQLClient(
   'https://api-eu-central-1.graphcms.com/v2/cl1aoja8b02gc01xm3r6e8ajy/master'
@@ -91,16 +90,7 @@ export default function Artikler({ hovedside, artikler }) {
       href={hovedside.ctaLink}
       buttonText={hovedside.ctaTekst}
       />}
-      {hovedside.blokke.map(({ id, __typename, overskrift, tekst }) => (
-        __typename === 'Tekst' ?
-          <Tekst
-            key={id}
-            overskrift={overskrift}
-            html={tekst.html}
-          />
-        :
-        <></>
-      ))}
+      <SectionRenderer sections={hovedside.blokke} />
       <section className={scss.wrapper}>
         <h2>Seneste artikler</h2>
         <div className={scss.artikler}>

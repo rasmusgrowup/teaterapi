@@ -1,9 +1,10 @@
 import scss from '../styles/citat.module.scss'
 import Slider from "react-slick";
+import Citat from "./Citat";
 
-export default function Citater({ overskrift, children }) {
+export default function Citater({ section }) {
 
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -16,10 +17,12 @@ export default function Citater({ overskrift, children }) {
   return (
     <>
       <section className={scss.wrapper}>
-        <h2>{overskrift}</h2>
+        <h2>{section.overskrift}</h2>
         <div className={scss.inner}>
         <Slider {...settings}>
-          {children}
+          { section.testimonials && section.testimonials.map((citat, i) => (
+              <Citat citat={citat.citat} navn={citat.navn} key={i}/>
+          ))}
         </Slider>
         </div>
       </section>

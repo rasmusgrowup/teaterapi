@@ -5,35 +5,28 @@ import { PLACEHOLDER } from '../lib/constants'
 
 import Chevron from '../public/chevron_right.svg'
 
-function Article({
-  link,
-  src,
-  overskrift,
-  tekst,
-  linkTekst,
-  height,
-  width
-}) {
+function Article({ props }) {
 
   return (
     <>
-      <Link href={link}>
+      <Link href={props.slug}>
         <a className={scss.wrapper}>
           <div className={scss.imageWrapper}>
             <Image
-              src={src}
+              src={props.billede.url}
               objectFit='cover'
               objectPosition='center'
-              height={height}
-              width={width}
+              layout="responsive"
+              height='300'
+              width='400'
             />
           </div>
           <div className={scss.textWrapper}>
-            <h3>{overskrift}</h3>
-            <p>{tekst}</p>
+            <h3>{props.titel}</h3>
+            <p>{props.underoverskrift[0]}</p>
           </div>
           <div className={scss.button}>
-            <span style={{ marginRight: '0.25rem' }}>{linkTekst}</span>
+            <span style={{ marginRight: '0.25rem' }}>Læs artikel</span>
             <Image src={Chevron} width='9' height='9' />
           </div>
         </a>

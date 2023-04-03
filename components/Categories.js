@@ -1,11 +1,16 @@
 import scss from '../styles/sections.module.scss'
+import Card from "./Card";
 
-function Categories({ overskrift, children }) {
+function Categories({ section }) {
   return (
     <>
       <section className={scss.categories}>
-        <h2 className={scss.sectionTitle}>{overskrift}</h2>
-        <div className={scss.inner}>{children}</div>
+        <h2 className={scss.sectionTitle}>{section.overskrift}</h2>
+        <div className={scss.inner}>
+            { section.kort.map((kort, i) => (
+                <Card key={i} props={kort} />
+            ))}
+        </div>
       </section>
     </>
   )

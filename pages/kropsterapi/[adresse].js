@@ -1,26 +1,16 @@
 // Default imports
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from "next/link"
 
 // Components
 import Hero from '../../components/Hero'
 import VideoHero from '../../components/VideoHero'
-import Categories from '../../components/Categories'
 import Articles from '../../components/Articles'
-import Article from '../../components/Article'
-import Card from '../../components/Card'
-import Tekst from '../../components/Tekst'
-import Section from '../../components/Section'
-import Citater from '../../components/Citater'
-import Citat from '../../components/Citat'
-import Priser from '../../components/Priser'
-import Pris from '../../components/Pris'
 
 // GraphCMS
 import ErrorPage from 'next/error'
 import { GraphQLClient } from 'graphql-request';
+import SectionRenderer from "../../components/SectionRenderer";
 
 const graphcms = new GraphQLClient(
   'https://api-eu-central-1.graphcms.com/v2/cl1aoja8b02gc01xm3r6e8ajy/master'
@@ -73,6 +63,9 @@ export async function getStaticProps({ params }) {
             layout
             sektionLink
             sektionLinkTekst
+            baggrundsfarve {
+              css
+            }
             tekst {
               html
             }
@@ -185,95 +178,10 @@ function Side({ kropsterapiUnderside }) {
       href={kropsterapiUnderside.ctaLink}
       buttonText={kropsterapiUnderside.ctaTekst}
       />}
-      {kropsterapiUnderside.blokke.map(({
-        id,
-        __typename,
-        overskrift,
-        kort,
-        billede,
-        layout,
-        sektionLink,
-        sektionLinkTekst,
-        tekst,
-        baggrundsfarve,
-        titel,
-        testimonials,
-        priserOverskrift,
-        priser
-      }) => (
-          __typename === 'KortBeholder' ?
-          <Categories overskrift={overskrift} key={overskrift}>
-            {kort.map(({ id, billede, link, linkTekst, overskrift, tekst}) => (
-              <Card
-                key={id}
-                src={billede.url}
-                width={billede.width}
-                height={billede.height}
-                link={`/${link}`}
-                linkTekst={linkTekst}
-                overskrift={overskrift}
-                tekst={tekst}
-              />
-            ))}
-          </Categories>
-          :
-          __typename === 'Sektion' ?
-            <Section
-              key={titel}
-              src={billede.url}
-              layout={layout}
-              titel={titel}
-              tekst={tekst.html}
-              link={sektionLink}
-              linkTekst={sektionLinkTekst}
-            />
-          :
-          __typename === 'Tekst' ?
-            <Tekst
-              bg={baggrundsfarve}
-              key={overskrift}
-              overskrift={overskrift}
-              html={tekst.html}
-            />
-          :
-          __typename === 'CitatBeholder' ?
-            <Citater overskrift={overskrift} key={overskrift}>
-              {testimonials.map(({navn, citat, id}) => (
-                <Citat citat={citat} navn={navn} key={id}/>
-              ))}
-            </Citater>
-          :
-          __typename === 'PrisBeholder' ?
-            <Priser overskrift={priserOverskrift} key={priserOverskrift}>
-              {priser.map(({ id, ydelse, beskrivelse, pris, prisLink}) => (
-                <Pris
-                  key={id}
-                  ydelse={ydelse}
-                  beskrivelse={beskrivelse.html}
-                  pris={pris}
-                  href={prisLink}/>
-              ))}
-            </Priser>
-          :
-          <></>
-      ))}
+      <SectionRenderer sections={kropsterapiUnderside.blokke} />
       {
         kropsterapiUnderside.artikler.length !== 0 &&
-        <Articles overskrift='Relaterede artikler'>
-          {kropsterapiUnderside.artikler.map(({ id, titel, underoverskrift, slug, billede}) => (
-            <Article
-              key={id}
-              overskrift={titel}
-              tekst={underoverskrift[0]}
-              src={billede.url}
-              height='300'
-              width='400'
-              layout='responsive'
-              link={`/artikler/${slug}`}
-              linkTekst='Læs artikel'
-            />
-          ))}
-        </Articles>
+          <Articles overskrift='Seneste artikler' props={kropsterapiUnderside.artikler} />
       }
     </>
   )

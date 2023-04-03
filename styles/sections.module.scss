@@ -38,11 +38,15 @@
   }
 }
 
+.section {
+  padding: 3rem 0;
+}
+
 .imageWithText {
   align-items: center;
   display: flex;
   flex-direction: row-reverse;
-  margin: 3rem auto;
+  margin: 0 auto;
   max-width: $m;
 
   @media (max-width: $m) {

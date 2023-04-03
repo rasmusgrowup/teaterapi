@@ -1,21 +1,21 @@
 import scss from '../styles/tekst.module.scss'
 
-function Tekst({ overskrift, html, bg }) {
+function Tekst({ section }) {
   const bgStyling = {
-    backgroundColor: `${ bg ? `${bg}` : '' }`
+    backgroundColor: `${ section.bg ? `${section.bg}` : '' }`
   }
 
   const innerStyling = {
-    paddingBottom: `${ bg ? `` : '3rem' }`,
-    paddingTop: `${ bg ? `` : '3rem' }`
+    paddingBottom: `${ section.bg ? `` : '3rem' }`,
+    paddingTop: `${ section.bg ? `` : '3rem' }`
   }
 
   return (
     <>
       <section className={scss.wrapper} style={bgStyling}>
         <div className={scss.inner}>
-          <h2>{overskrift}</h2>
-          <div dangerouslySetInnerHTML={{ __html: `${html}` }}></div>
+          <h2>{section.overskrift}</h2>
+          <div dangerouslySetInnerHTML={{ __html: `${section.tekst.html}` }}></div>
         </div>
       </section>
     </>

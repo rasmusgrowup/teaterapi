@@ -178,12 +178,13 @@
   }
 
   p {
+    display: block;
     margin: 0.75rem 0;
     text-align: justify;
   }
 
   ul {
-    list-style-type: circle;
+    list-style-type: dot;
   }
 
   blockquote {
@@ -218,6 +219,14 @@
 
   h4 {
     margin: 0;
+  }
+
+  p {
+    display: block;
+  }
+
+  a {
+    display: block;
   }
 
   a:hover {

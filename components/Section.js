@@ -4,33 +4,34 @@ import scss from '../styles/sections.module.scss'
 import Chevron from '../public/chevron_right.svg'
 import { SECTION_PLACEHOLDER } from '../lib/constants'
 
-function Section({layout, titel, tekst, link, linkTekst, src}) {
+function Section({ section }) {
   return (
-    <>
-      <section className={`${scss.imageWithText} ${ layout == true ? `${scss.left}`: `${scss.right}` }`}>
+    <section className={scss.section} style={ section.baggrundsfarve && { backgroundColor: `${section.baggrundsfarve.css}` }}>
+      <div className={`${scss.imageWithText} ${ section.layout === true ? `${scss.left}`: `${scss.right}` }`}>
         <div className={scss.imageBox}>
           <Image
-            src={src}
+            src={section.billede.url}
             layout='responsive'
             objectFit='cover'
+            objectPosition='center center'
             height='400'
             width='320'
             quality='100'
           />
         </div>
         <div className={scss.textBox}>
-          <h2>{titel}</h2>
-          <div dangerouslySetInnerHTML={{__html: tekst}}></div>
+          <h2>{section.titel}</h2>
+          <div dangerouslySetInnerHTML={{__html: section.tekst.html}}></div>
           {
-            linkTekst &&
-            <div><Link href={link}><a className='link'>
-              <span style={{ marginRight: '0.25rem' }}>{linkTekst}</span>
+            section.linkTekst &&
+            <div><Link href={section.link}><a className='link'>
+              <span style={{ marginRight: '0.25rem' }}>{section.linkTekst}</span>
               <Image src={Chevron} width='9' height='9'/>
             </a></Link></div>
           }
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 

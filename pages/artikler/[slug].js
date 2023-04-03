@@ -1,15 +1,11 @@
 import Image from "next/image"
-import Hero from '../../components/Hero'
-import Akvarel from '../../public/Akvarel.png'
 import scss from '../../styles/articles.module.scss'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import React from 'react'
+
 import ErrorPage from 'next/error'
 import { GraphQLClient } from 'graphql-request';
-
-import Chevron from '../../public/chevron_left.svg'
-
 const graphcms = new GraphQLClient(
   'https://api-eu-central-1.graphcms.com/v2/cl1aoja8b02gc01xm3r6e8ajy/master'
 )
