@@ -76,7 +76,7 @@ export default function Artikler({ hovedside, artikler }) {
           <meta name="keywords" content={hovedside.seo.metaTags} key='keywords' />
         </Head>
       }
-      { hovedside.heroBillede.mimeType != 'video/mp4' ?
+      { hovedside.heroBillede.mimeType !== 'video/mp4' ?
       <Hero
         src={hovedside.heroBillede.url}
         title={hovedside.overskrift}

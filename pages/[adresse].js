@@ -161,7 +161,7 @@ function Side({ landingsside }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
       }
-      { landingsside.heroBillede.mimeType != 'video/mp4' ? <Hero
+      { landingsside.heroBillede.mimeType !== 'video/mp4' ? <Hero
         src={landingsside.heroBillede.url}
         title={landingsside.overskrift}
         smallTitle={landingsside.underoverskrift}

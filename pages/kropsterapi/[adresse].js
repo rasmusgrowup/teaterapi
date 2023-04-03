@@ -164,7 +164,7 @@ function Side({ kropsterapiUnderside }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
       }
-      { kropsterapiUnderside.heroBillede.mimeType != 'video/mp4' ? <Hero
+      { kropsterapiUnderside.heroBillede.mimeType !== 'video/mp4' ? <Hero
         src={kropsterapiUnderside.heroBillede.url}
         title={kropsterapiUnderside.overskrift}
         smallTitle={kropsterapiUnderside.underoverskrift}
