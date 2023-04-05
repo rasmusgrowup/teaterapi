@@ -11,6 +11,7 @@ import Articles from '../../components/Articles'
 import ErrorPage from 'next/error'
 import { GraphQLClient } from 'graphql-request';
 import SectionRenderer from "../../components/SectionRenderer";
+import {useEffect, useState} from "react";
 
 const graphcms = new GraphQLClient(
   'https://api-eu-central-1.graphcms.com/v2/cl1aoja8b02gc01xm3r6e8ajy/master'
@@ -149,6 +150,12 @@ export async function getStaticPaths() {
 
 function Side({ kropsterapiUnderside }) {
   const router = useRouter()
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true)
+  }, [])
+
   if (!router.isFallback && !kropsterapiUnderside?.adresse) {
     return <ErrorPage statusCode={404} />
   }

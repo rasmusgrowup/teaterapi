@@ -16,13 +16,13 @@ function VideoHero({title, url, text, buttonText, href}) {
             muted
             loop
             playsInline
-            preload="metadata"
             style={{ objectFit: 'cover' }}
             width='100%'
             height='100%'
             alt=''
+            key={url}
             >
-          <source src={`${url}#t=0.1`} type='video/mp4' />
+          <source src={url} type='video/mp4' />
         </video>
         <div className={scss.content}>
           <h1 className={scss.title}>{title}</h1>

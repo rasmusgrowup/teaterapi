@@ -5,7 +5,7 @@ import Chevron from '../public/chevron_right.svg'
 import Article from "./Article";
 
 function Articles({props, overskrift}) {
-    
+
     return (
         <>
             <section className={scss.articles}>

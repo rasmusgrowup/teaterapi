@@ -25,7 +25,6 @@ export default function Menu({ addClass, footer }) {
 
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown)
-    return
   }
 
   const { data, error } = useSWR(`
