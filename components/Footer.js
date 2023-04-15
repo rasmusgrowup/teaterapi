@@ -9,7 +9,7 @@ import { request } from 'graphql-request'
 
 const fetcher = query => request('https://api-eu-central-1.graphcms.com/v2/cl1aoja8b02gc01xm3r6e8ajy/master', query)
 
-import Logo from '../public/logo_dark.svg'
+import Logo from '../public/logo_tagline.png'
 
 export default function Footer({footerTekst}) {
 
@@ -31,7 +31,7 @@ export default function Footer({footerTekst}) {
     <>
       <footer className={scss.main}>
         <div className={scss.top}>
-          <Image src={Logo} />
+          <div className={scss.image}><Image src={Logo}/></div>
           <div dangerouslySetInnerHTML={{ __html: `${data.footer.footerTekst.html}` }}></div>
           <p>Adamsminde 9, 5462 Morud<br />
             <Link href='mailto:info@mariasrum.dk'><a className='link'>info@mariasrum.dk</a></Link><br/>
