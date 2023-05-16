@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Analytics } from '@vercel/analytics/react';
 
 import Layout from '../components/Layout'
 import { useEffect, useContext } from 'react'
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }) {
     <MenuProvider>
       <Layout>
         <Component {...pageProps} />
+        <Analytics />
       </Layout>
     </MenuProvider>
   )

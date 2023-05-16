@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@u-wave/react-vimeo": "^0.9.5",
+    "@vercel/analytics": "^1.0.1",
     "@vimeo/player": "^2.16.4",
     "date-fns": "^2.28.0",
     "graphql": "^16.3.0",
