@@ -9,7 +9,7 @@ function Article({ props }) {
 
   return (
     <>
-      <Link href={props.slug}>
+      <Link href={`/artikler/${props.slug}`}>
         <a className={scss.wrapper}>
           <div className={scss.imageWrapper}>
             <Image
