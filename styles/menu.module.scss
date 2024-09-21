@@ -1,6 +1,7 @@
 @import "sizes.module";
 
 .menu {
+  position: relative;
   background-color: var(--main-background);
 }
 .menuInner {
