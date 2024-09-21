@@ -3,6 +3,7 @@
 .menu {
   position: relative;
   background-color: var(--main-background);
+  z-index: 99;
 }
 .menuInner {
   align-items: center;
