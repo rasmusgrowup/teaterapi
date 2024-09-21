@@ -2,6 +2,12 @@
 
 .menu {
   background-color: var(--main-background);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
 .menuInner {
   align-items: center;
@@ -110,14 +116,15 @@
 
   .menuList {
     background-color: var(--main-background);
+    box-shadow: 0 0 400px var(--black);
     display: none;
     left: 0;
     line-height: 2;
-    padding: var(--section-padding);
+    padding: 100px var(--section-padding) var(--section-padding);
     position: absolute;
-    top: 99px;
+    top: 0;
     width: 100%;
-    z-index: 8;
+    z-index: -1;
   }
 
   .mobileMenuToggle {
