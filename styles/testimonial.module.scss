@@ -1,0 +1,31 @@
+@import "sizes.module";
+
+.testimonialSection {
+  background-color: var(--light-accent);
+  font-family: "Handlee", cursive;
+  font-size: 120%;
+  width: 100vw;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: var(--section-padding);
+  width: $large;
+}
+
+.testimonial {
+  line-height: 1.75;
+  margin: 0;
+}
+
+.nameAndAge {
+  display: block;
+  margin-top: 1rem;
+}
+
+@media (max-width: $small) {
+  .inner {
+    padding: 3rem var(--section-padding);
+  }
+}

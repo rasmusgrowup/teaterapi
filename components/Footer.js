@@ -1,50 +1,53 @@
-import scss from '../styles/footer.module.scss'
-import Link from "next/link"
-import Image from "next/image"
-import Menu from '../components/Menu'
-import React from 'react'
+import Link from 'next/link';
+import styles from "../styles/footer.module.scss";
+import { useRouter } from 'next/router';
 
-import useSWR from 'swr'
-import { request } from 'graphql-request'
+export default function Footer({ footer }) {
+    const router = useRouter(); // To check active links
+    const menu = footer?.menu[0] || null;
+    const menuItems = footer?.menu[0]?.menuItem || [];
 
-const fetcher = query => request('https://api-eu-central-1.graphcms.com/v2/cl1aoja8b02gc01xm3r6e8ajy/master', query)
+    return (
+        <footer className={styles.footer}>
+            <div className={styles.columns}>
+                <div className={styles.column}>
+                    {/* Render the text area content */}
+                    <div className={styles.textArea} dangerouslySetInnerHTML={{__html: footer?.textArea?.html}}/>
+                </div>
 
-import Logo from '../public/logo_tagline.png'
+                <div className={styles.column}>
+                    {/* Render the menu */}
+                    <nav className={styles.footerMenu}>
+                        <h5>{menu.title}</h5>
+                        <ul className={styles.menuList}>
+                            {menuItems.map((item, index) => {
+                                // Determine the correct href for each menu item
+                                const href = item.page?.homePage ? '/' : `/${item.page?.slug}`;
 
-export default function Footer({footerTekst}) {
+                                // Check if the current URL matches the menu item's slug or the homepage
+                                const isActive = router.asPath === `/${item.page?.slug}` ||
+                                    (router.asPath === '/' && item.page?.homePage);
 
-  const { data, error } = useSWR(`
-    query FooterContent {
-      footer(where: {footerType: Generel}) {
-        footerTekst {
-          html
-        }
-      }
-    }`,
-    fetcher
-  )
+                                return (
+                                    <li key={index} className={`${styles.menuItem} ${isActive ? styles.active : ''}`}>
+                                        <Link href={href}>
+                                            {item.text}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </nav>
+                </div>
 
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
-
-  return(
-    <>
-      <footer className={scss.main}>
-        <div className={scss.top}>
-          <div className={scss.image}><Image src={Logo}/></div>
-          <div dangerouslySetInnerHTML={{ __html: `${data.footer.footerTekst.html}` }}></div>
-          <p>Adamsminde 9, 5462 Morud<br />
-            <Link href='mailto:info@mariasrum.dk'><a className='link'>info@mariasrum.dk</a></Link><br/>
-            <Link href='tel:51841880'><a>+45 51 84 18 80</a></Link>
-          </p>
-        </div>
-        <div className={scss.middle}>
-          <Menu addClass={scss.menuFooter} footer />
-        </div>
-        <div className={scss.policy}>
-          <span>©{new Date().getFullYear()} Marias Rum / </span><Link href='/handelsbetingelser'><a>Handelsbetingelser</a></Link>
-        </div>
-      </footer>
-    </>
-  )
+                <div className={styles.column}>
+                    {/* Render the bottom text area */}
+                    <div className={styles.bottomTextArea} dangerouslySetInnerHTML={{__html: footer?.bottomTextArea?.html}}/>
+                </div>
+            </div>
+            <div className={styles.copyrights}>
+                ©{new Date().getFullYear()} Tea-Terapi | Webdesign af <Link href={'https://growupstudio.dk'}>Growup Studio</Link>
+            </div>
+        </footer>
+    );
 }

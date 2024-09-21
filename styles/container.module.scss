@@ -1,0 +1,54 @@
+@import "sizes.module";
+
+.containerSection {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: var(--section-padding);
+  width: 100vw;
+}
+
+.sectionTitle {
+  text-align: center;
+}
+
+.cards {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card {
+  max-width: 25%;
+  text-align: center;
+  text-decoration: none;
+  padding: 1vw;
+  width: 100%;
+
+  .cardDescription {
+    color: var(--text-color);
+  }
+}
+
+.cardMedia {
+  border-radius: 50%;
+  height: 22vw;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: $small) {
+  .cards {
+    flex-direction: column;
+  }
+
+  .card {
+    margin-top: 2rem;
+    max-width: 100%;
+  }
+
+  .cardMedia {
+    height: 100vw;
+  }
+}

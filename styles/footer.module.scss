@@ -1,74 +1,65 @@
-@import 'sizes.scss';
+@import "sizes.module";
 
-.main {
-  background-color: var(--clay);
-  color: var(--dark);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 450px;
-  text-align: center;
-  padding: 3rem 1rem;
-}
-
-.top {
+.footer {
+  background-color: var(--light-accent);
   margin: 0 auto;
-  max-width: 600px;
+  width: 100vw;
 }
 
-.middle {
-  margin: 2rem auto;
+.columns {
+  //border-top: 1px solid rgb(200, 200, 200);
+  display: flex;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: var(--section-padding);
 }
 
-.bottom {
-  opacity: 0.25;
+.column {
+  margin-right: 5vw;
+  width: 25vw;
 }
 
-.bottom:hover {
-  opacity: 1;
+.textArea {
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
 }
 
-.image {
-  margin: 0 auto 2rem;
-  width: 260px;
-}
-
-.menuFooter {
-  justify-content: center;
-  flex-direction: column;
+.menuList {
+  list-style: none;
   line-height: 2;
+  padding: 0;
 
-  @media (max-width: $l) {
-    li,
-    .dropdownContainer {
-      margin-right: 0;
-    }
-  }
-
-  @media (min-width: $l) {
-    flex-direction: row;
-    line-height: 1;
-  }
-
-  .socials {
-    border-left-color: var(--dark);
-
-    @media (max-width: $l) {
-      border: none;
-    }
-  }
-
-  .socials a svg path {
-    fill: var(--dark);
+  .menuItem a {
+    text-decoration: none;
+    color: var(--black);
   }
 }
 
-.policy {
-  margin-bottom: 1rem;
-  opacity: 0.5;
-}
-
-.policy a:hover {
+.active {
   text-decoration: underline;
-  opacity: 1;
+  text-underline-offset: .33rem;
+}
+
+.copyrights {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 1rem var(--section-padding) 3rem;
+}
+
+@media (max-width: $small) {
+  .footer {
+    padding: 3rem var(--section-padding) 0;
+  }
+
+  .columns {
+    flex-direction: column;
+  }
+
+  .column {
+    margin-bottom: 2.5rem;
+    width: 100%;
+  }
 }

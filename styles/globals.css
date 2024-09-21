@@ -1,9 +1,9 @@
 html,
 body {
-  background-color: var(--sand);
-  color: var(--dark);
+  background-color: var(--main-background);
+  color: var(--black);
   font-family:
-    'Nunito Sans',
+    "Rubik",
     avenir,
     -apple-system,
     BlinkMacSystemFont,
@@ -16,49 +16,22 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
-  font-size: 16px;
+  font-size: clamp(16px, 1.1vw, 1.1vw);
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
   margin: 0;
   padding: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.link {
+  color: var(--main-accent);
   text-decoration: underline;
+  text-underline-offset: .33rem;
 }
 
-.link:hover {
-  opacity: 0.5;
-}
-
-.artikelCitat {
-  border-left: 1px solid #B3896D;
-  color: #B3896D;
-  font-size: 1.3em;
-  font-family: 'Cormorant', serif;
-  margin: 2rem auto;
-  padding-left: 1rem;
-}
-
-.articleLink a {
-  align-items: center;
-  display: flex;
-}
-
-.articleLink a::after {
-  content: url('/chevron_right.svg');
-  display: block;
-  margin-left: 0.25rem;
-  margin-top: 0.25rem;
-  transform: scale(0.5);
-}
-
-.slick-next::before,
-.slick-prev::before {
-  color: var(--dark) !important;
+a:hover {
+  text-decoration: none;
 }
 
 * {
@@ -71,44 +44,61 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Cormorant', serif;
-  font-weight: 500;
-  margin-block-end: 1.5rem;
-  margin-block-start: 1.5rem;
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--main-accent);
 }
 
 h1 {
-  font-size: 3em;
-  line-height: 1;
+  font-size: clamp(2rem, 4vw, 4vw);
 }
 
 h2 {
-  font-size: 2.2em;
+  font-size: clamp(1.75rem, 2.5vw, 2.5vw);
 }
 
 h3 {
-  font-size: 1.75em;
+  font-size: clamp(1.25rem, 1.5vw, 1.5vw);
 }
 
-h4 {
-  font-size: 1.6em;
+h4, h5, h6 {
+  font-size: 1.2rem;
+  margin: 0;
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.75;
+}
+
+.rubik-normal {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.rubik-light {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.handlee-regular {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 :root {
   --black: #000;
   --white: #fff;
-  --dark: #5F433C;
-  --lightDark: rgb(207, 176, 168);
-  --darker: #1d0d0a;
-  --darkSand: #ffe8cf;
-  --sand: #FFF8F4;
-  --clay: #E3D3C3;
-  --rosa: #C5B6B3;
-  --green: #E0DDD9;
-  --darkRosa: #8B6A62;
-  --darkGreen: #6E7167;
+  --main-accent-original: #FF6CB5;
+  --main-accent: #FF3499;
+  --light-accent: #FFEFF7;
+  --main-background: #FFFCF8;
+  --max-width: 95vw;
+  --section-padding: 5vw;
+  --text-color: var(--black);
 }

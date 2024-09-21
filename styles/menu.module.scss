@@ -1,158 +1,144 @@
-@import 'sizes.scss';
+@import "sizes.module";
 
-.list {
+.menuInner {
   align-items: center;
+  color: var(--main-accent);
   display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  li,
-  .dropdownContainer {
-    margin-right: 1rem;
-  }
-
-  li:hover {
-    text-decoration: underline;
-  }
-
-  .dropdownLink svg {
-    height: 9px;
-    width: 9px;
-  }
-
-  @media (max-width: $m) {
-    .dropdownLink svg path {
-      fill: var(--dark);
-    }
-  }
+  height: 100px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 0 var(--section-padding);
+  width: 100vw;
 }
 
-.dropdownContainer span {
-  margin-right: 0.25rem;
-}
-
-@media (min-width: $l) {
-  .dropdown {
-    color: var(--dark);
-    display: none;
-    padding: 1rem 0;
-    position: absolute;
-    transition: 0.3s;
-    transition-property: opacity;
-    top: 50px;
-    visibility: hidden;
-    width: auto;
-
-    ul {
-      background-color: var(--clay);
-      cursor: pointer;
-      list-style: none;
-      line-height: 1.75;
-      padding: 0.75rem 1rem;
-
-      li {
-        margin-right: 0;
-      }
-    }
-  }
-
-  .dropdownTop {
-    border-bottom: 1px solid var(--dark);
-    margin-bottom: 0.25rem;
-  }
-
-  .dropdownContainer:hover .dropdown {
-    display: block;
-    visibility: visible;
-  }
-}
-
-@media (max-width: $m) {
-  .dropdownContainer ul {
-    display: none;
-  }
-
-  .dropdownContainer .dropdownOpened ul {
-    display: block;
-  }
-
-  .dropdownContainer ul li {
-    opacity: 0;
-    transition: 0.6s;
-    transition-delay: 0.1s;
-    transition-property: opacity;
-  }
-
-  .dropdownContainer .dropdownOpened ul li {
-    opacity: 1;
-    transition: 0.6s;
-    transition-delay: 0.1s;
-    transition-property: opacity;
-  }
-}
-
-@media (max-width: $l) {
-  .dropdown ul {
-    font-size: 0.8em;
-    line-height: 2;
-  }
-}
-
-.socials {
-  border-left: 1px solid var(--sand);
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  @media (max-width: $l) {
-    border: 0;
-    margin-top: 2rem;
-    padding: 0;
-  }
+.logo {
+  font-family: "Handlee", cursive;
+  font-size: 1.75rem;
 
   a {
-    display: inline-block;
-
-    @media (max-width: $m) {
-      align-items: center;
-      display: flex;
-      font-size: 16px;
-      line-height: 2;
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
+}
 
-  span {
-    display: none;
+.menuList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    @media (max-width: $m) {
-      display: inline-block;
-    }
-  }
+.menuItem {
+  margin-right: 2vw;
+  position: relative;
 
-  a svg {
-    height: 1.25rem;
-    margin: 0 0.5rem;
-    width: 1.25rem;
+  a {
+    text-decoration: none;
 
-    @media (max-width: $m) {
-      margin-left: 0;
-    }
-  }
-
-  a svg path {
-    fill: var(--white);
-
-    @media (max-width: $m) {
-      fill: var(--dark);
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
 
-.homeLink {
-  display: none;
+.dropdownToggle {
+  cursor: pointer;
+}
 
-  @media (max-width: $m) {
-    display: inherit;
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 200%;
+  left: 0;
+  background-color: var(--light-accent);
+  list-style: none;
+  padding: 1rem;
+  z-index: 1;
+  width: 200%;
+
+  .dropdownItem {
+    margin-bottom: 5px;
+
+    a {
+      padding: 5px;
+      display: block;
+    }
+  }
+
+  .dropdownItem:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dropdownMenu.display {
+  display: block;
+}
+
+.active {
+  text-decoration: underline;
+  text-underline-offset: .33rem;
+}
+
+.mobileMenuToggle {
+  align-items: center;
+  background-color: var(--main-accent);
+  border-radius: 50%;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  height: 2.8rem;
+  width: 2.8rem;
+
+  span {
+    background-color: var(--main-background);
+    display: block;
+    height: .15rem;
+    margin: .15rem auto;
+    width: 1.6rem;
+  }
+}
+
+@media (max-width: $small) {
+  .menuList {
+    background-color: var(--main-background);
+    display: none;
+    left: 0;
+    line-height: 2;
+    padding: var(--section-padding);
+    position: absolute;
+    top: 99px;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .mobileMenuToggle {
+    display: flex;
+  }
+
+  .menuIsOpen {
+    display: block;
+  }
+
+  .dropdownMenu {
+    background-color: var(--main-background);
+    line-height: 1;
+    position: relative;
+    width: auto;
+  }
+
+  .closeIcon span:last-of-type {
+    display: none;
+  }
+
+  .closeIcon span {
+    position: absolute;
+  }
+
+  .closeIcon span:first-of-type {
+    transform: rotate(-45deg);
+  }
+
+  .closeIcon span:nth-of-type(2) {
+    transform: rotate(45deg);
   }
 }

@@ -1,0 +1,57 @@
+@import "sizes.module";
+
+.mainSection {
+  display: flex;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: var(--section-padding);
+  width: 100vw;
+}
+
+.textColumn,
+.assetColumn {
+  align-self: center;
+  width: 50%;
+}
+
+.textColumn {
+  padding-right: var(--section-padding);
+}
+
+.title {
+  margin-top: 0;
+}
+
+.asset {
+  border-radius: 50%;
+  height: 36vw;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 30vw;
+}
+
+.right {
+  flex-direction: row;
+}
+
+.left {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: $small) {
+  .mainSection {
+    flex-direction: column;
+  }
+
+  .textColumn,
+  .assetColumn {
+    margin: var(--section-padding) auto;
+    width: 100%;
+  }
+
+  .asset {
+    height: 100vw;
+    width: calc(100vw - calc(var(--section-padding) * 3));
+  }
+}

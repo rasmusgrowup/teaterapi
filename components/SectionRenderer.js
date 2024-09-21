@@ -1,29 +1,41 @@
-import Categories from "./Categories";
-import Section from "./Section";
-import Tekst from "./Tekst";
-import Citater from "./Citater";
-import Priser from "./Priser";
+import HeroSection from "../components/HeroSection";
+import MainSection from "../components/MainSection";
+import TestimonialSection from "../components/TestimonialSection";
+import ContainerSection from "../components/ContainerSection";
+import PriceSection from "../components/PriceSection";
+
+// Map section types to their respective components
+const SECTION_COMPONENTS = {
+    HeroSection: HeroSection,
+    MainSection: MainSection,
+    TestimonialSection: TestimonialSection,
+    ContainerSection: ContainerSection,
+    PriceSection: PriceSection,
+    // You can add more mappings here as needed
+    // TextSection: TextSection,
+    // ImageGallerySection: ImageGallerySection,
+};
 
 export default function SectionRenderer({ sections }) {
+    if (!sections || sections.length === 0) {
+        return null; // Return nothing if there are no sections
+    }
 
     return (
         <>
-            { sections && sections.map((section, i) => {
-                switch (section.__typename) {
-                    case 'KortBeholder':
-                        return <Categories key={section.id} section={section} i={i} />
-                    case 'Sektion':
-                        return <Section key={section.id} section={section} i={i} />
-                    case 'Tekst':
-                        return <Tekst key={section.id} section={section} i={i} />
-                    case 'CitatBeholder':
-                        return <Citater key={section.id} section={section} i={i} />
-                    case 'PrisBeholder':
-                        return <Priser key={section.id} section={section} i={i} />
-                    default:
-                        return <section key={section.id}></section>
+            {sections.map((section, i) => {
+                // Get the appropriate component based on the section type
+                const SectionComponent = SECTION_COMPONENTS[section.__typename];
+
+                if (!SectionComponent) {
+                    // Fallback for unrecognized section types
+                    console.warn(`No component found for section type: ${section.__typename}`);
+                    return null;
                 }
+
+                // Render the component, passing the section and index as props
+                return <SectionComponent key={i} section={section} i={i} />;
             })}
         </>
-    )
+    );
 }

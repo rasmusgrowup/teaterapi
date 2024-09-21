@@ -1,122 +1,79 @@
-@import 'sizes.scss';
+@import "sizes.module";
 
-.wrapper {
-  background-color: var(--sand);
-  min-height: 400px;
-  overflow: hidden;
+.heroSection {
+  height: 42vw;
   position: relative;
-  width: 100%;
-
-  @media (min-width: $m) {
-    min-height: 460px;
-  }
-
-  /*
-  &::after {
-    background: var(--darker);
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0.25;
-    z-index: 1;
-  }
-  */
-}
-
-.akvarel {
-  left: 50%;
-  max-width: 640px;
-  opacity: 0.15;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-}
-
-.imageWrapper {
-  -webkit-filter: contrast(0.7);
-  -ms-filter: contrast(0.7);
-  -o-filter: contrast(0.7);
-  bottom: 0;
-  filter: contrast(0.7);
-  height: 100%;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
-
-.imageContainer {
-  position: relative;
-  height: 100%;
-  width: 100%;
+  width: 100vw;
 }
 
 .content {
-  color: var(--sand);
-  left: 50%;
-  max-width: 640px;
-  position: absolute;
-  top: 55%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  padding: 0 1rem;
-  width: 100%;
-  z-index: 3;
-}
-
-.title {
-  font-size: 2.5em;
-  line-height: 1.2;
-  //text-transform: uppercase;
-
-  @media (min-width: $s) {
-    font-size: 3em;
-  }
-}
-
-.smallTitle {
-  font-family: 'nunito', sans-serif;
-  font-size: 1.1em;
-  font-weight: 300;
-  margin-bottom: 1.5rem;
-
-  @media (min-width: $m) {
-    font-size: 1.2em;
-  }
-}
-
-.button {
-  align-items: center;
-  background-color: var(--sand);
-  border: 1px solid var(--sand);
-  color: var(--dark);
-  display: inline-flex;
-  font-size: 0.8em;
-  height: 2.5rem;
-  padding: 0 1.25rem;
-  text-transform: uppercase;
-}
-
-.button:hover {
-  background-color: transparent;
-  border: 1px solid var(--sand);
-  color: var(--sand);
-}
-
-.video {
-  background-color: var(--darker);
-  left: 50%;
+  color: var(--main-accent);
   position: absolute;
   top: 50%;
+  left: 50%;
+  min-width: 300px;
   transform: translate(-50%, -50%);
-  width: 200%;
+  text-align: center;
+  z-index: 1;
+  width: 42%;
 
-  @media (min-width: $l) {
-    width: 100%;
+  .title {
+    color: inherit;
+  }
+
+  .link {
+    color: inherit;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.background {
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 0;
+  mix-blend-mode: multiply;
+  width: 100%;
+}
+
+.video,
+.image {
+  animation: fadeIn 2s ease 1s forwards;
+  opacity: 0;
+}
+
+
+
+// Define the fade-in keyframe animation
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: $small) {
+  .heroSection {
+    height: 100vw;
+  }
+
+  .video {
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
   }
 }
