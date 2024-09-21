@@ -1,9 +1,7 @@
 @import "sizes.module";
 
 .menu {
-  position: relative;
   background-color: var(--main-background);
-  z-index: 99;
 }
 .menuInner {
   align-items: center;
@@ -112,13 +110,12 @@
 
   .menuList {
     background-color: var(--main-background);
-    box-shadow: 0 0 600px var(--black);
     display: none;
     left: 0;
     line-height: 2;
-    padding: 100px var(--section-padding) var(--section-padding);
+    padding: var(--section-padding);
     position: absolute;
-    top: 0;
+    top: 99px;
     width: 100%;
     z-index: -1;
   }

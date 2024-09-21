@@ -1,7 +1,9 @@
+import styles from "../styles/common.module.scss";
+
 export default function Layout({children}) {
   return (
     <>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </>
   )
 }
