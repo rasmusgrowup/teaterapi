@@ -15,13 +15,11 @@ export default function MainSection({ section }) {
             <a href={sectionLink.urlLink} target="_blank" rel="noopener noreferrer">
                 {sectionLink.linkText}
             </a>
-        ) : (
-            sectionLink.page?.slug ? (
-                <Link href={`/${sectionLink.page.slug}`}>
-                    {sectionLink.linkText}
-                </Link>
-            ) : null
-        )
+        ) : sectionLink.__typename === 'InternalLink' ? (
+            <Link href={`/${sectionLink.page.slug}`}>
+                {sectionLink.linkText}
+            </Link>
+        ) : null
     );
 
     return (

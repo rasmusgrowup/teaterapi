@@ -11,7 +11,7 @@ class MyDocument extends Document {
       <Html lang="da">
           <Head>
               <link rel="preconnect" href="https://fonts.googleapis.com"/>
-              <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+              <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={"true"}/>
               <link
                   href="https://fonts.googleapis.com/css2?family=Handlee&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
                   rel="stylesheet"/>

@@ -22,7 +22,7 @@ export default function HeroSection({ section, i }) {
             </div>
             <div className={styles.background}>
                 {asset && (asset.mimeType === 'video/quicktime' || asset.mimeType === 'video/mp4') ?
-                    <video key={router.asPath} className={styles.video} width="100%" height="auto" autoPlay loop preload="true">
+                    <video key={router.asPath} className={styles.video} width="100%" height="auto" autoPlay loop muted playsInline={'true'} preload="true">
                         <source src={asset.url} type="video/quicktime"/>
                         Your browser does not support the video tag.
                     </video>

@@ -36,6 +36,10 @@
   margin: 0 auto 1.5rem;
   overflow: hidden;
   position: relative;
+
+  &:hover {
+    outline: 1px solid var(--main-accent);
+  }
 }
 
 @media (max-width: $small) {
