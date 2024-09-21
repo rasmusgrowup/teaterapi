@@ -1,5 +1,8 @@
 @import "sizes.module";
 
+.menu {
+  background-color: var(--main-background);
+}
 .menuInner {
   align-items: center;
   color: var(--main-accent);
@@ -99,16 +102,23 @@
 }
 
 @media (max-width: $small) {
+  .menuInner {
+    max-width: 100%;
+    position: relative;
+    z-index: 9;
+  }
+
   .menuList {
     background-color: var(--main-background);
+    box-shadow: 0 0 600px var(--black);
     display: none;
     left: 0;
     line-height: 2;
-    padding: var(--section-padding);
+    padding: 100px var(--section-padding) var(--section-padding);
     position: absolute;
-    top: 99px;
+    top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: -1;
   }
 
   .mobileMenuToggle {
