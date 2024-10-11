@@ -15,8 +15,8 @@ export default function Menu({ menu }) {
 
     // Function to toggle the active dropdown
     const toggleDropdown = (id) => {
-        // If the same dropdown is clicked, close it, otherwise open the clicked one
-        setActiveDropdown(activeDropdown === id ? null : id);
+        setActiveDropdown(prevId => (prevId === id ? null : id)); // Toggle between null and the selected id
+        console.log(id)
     };
 
     const toggleMenu = () => {
@@ -52,7 +52,7 @@ export default function Menu({ menu }) {
                                     >
                                         {item.text} <span style={{fontSize: '75%'}}>{downChevron}</span>
                                     </span>
-                                    <ul className={`${styles.dropdownMenu} ${isDropdownActive ? styles.display : ''}`}>
+                                    <ul className={`${styles.dropdownMenu} ${activeDropdown === item.id ? styles.display : ''}`}>
                                         {pages.map((page, idx) => {
                                             const href = page.homePage ? '/' : `/${page.slug}`;
 

@@ -2,11 +2,11 @@ import Image from 'next/image';
 import styles from '../styles/container.module.scss';
 import Link from "next/link";
 
-export default function ContainerSection({ section }) {
+export default function ContainerSection({ section, i }) {
     const { title, cards } = section;
 
     return (
-        <section className={styles.containerSection}>
+        <section className={styles.containerSection} style={i === 0 ? {marginTop: '99px'} : {}}>
             {/* Section title */}
             {title && <h2 className={styles.sectionTitle}>{title}</h2>}
 

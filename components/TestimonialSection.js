@@ -1,10 +1,10 @@
 import styles from '../styles/testimonial.module.scss';
 
-export default function TestimonialSection({ section }) {
+export default function TestimonialSection({ section, i }) {
     const { nameAndAge, testimonial } = section;
 
     return (
-        <section className={styles.testimonialSection}>
+        <section className={styles.testimonialSection} style={i === 0 ? {marginTop: '99px'} : {}}>
             <div className={styles.inner}>
                 <blockquote className={styles.testimonial}>
                     {'"'}{testimonial}{'"'}

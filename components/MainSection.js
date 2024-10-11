@@ -3,7 +3,7 @@ import styles from '../styles/mainSection.module.scss';
 import common from '../styles/common.module.scss';
 import Image from "next/image";
 
-export default function MainSection({ section }) {
+export default function MainSection({ section, i }) {
     const { title, useTitleOnWebsite, sectionAsset, sectionLink, alignment, sectionText } = section;
 
     // Determine the alignment class
@@ -23,7 +23,7 @@ export default function MainSection({ section }) {
     );
 
     return (
-        <section className={`${styles.mainSection} ${alignmentClass}`}>
+        <section className={`${styles.mainSection} ${alignmentClass}`} style={i === 0 ? {marginTop: '99px'} : {}}>
             <div className={styles.textColumn}>
                 {/* Conditionally render the title if useTitleOnWebsite is true */}
                 {useTitleOnWebsite && <h2 className={styles.title}>{title}</h2>}

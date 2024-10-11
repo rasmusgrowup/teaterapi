@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from '../styles/price.module.scss'; // Assume the styles are stored here
 
-const PriceSection = ({ section }) => {
+const PriceSection = ({ section, i }) => {
     const { title, text, sessions } = section;
 
     return (
-        <section className={styles.priceSection}>
+        <section className={styles.priceSection} style={i === 0 ? {marginTop: '99px'} : {}}>
             <div className={styles.inner}>
                 <div className={styles.column}>
                     {/* Title */}

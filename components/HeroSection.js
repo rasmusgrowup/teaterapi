@@ -11,7 +11,7 @@ export default function HeroSection({ section, i }) {
     const router = useRouter();
 
     return (
-        <section className={styles.heroSection}>
+        <section className={styles.heroSection} style={i === 0 ? {marginTop: '99px'} : {}}>
             <div className={styles.content}>
                 <h1 className={styles.title}>{title}</h1>
                 {link && (
@@ -22,7 +22,8 @@ export default function HeroSection({ section, i }) {
             </div>
             <div className={styles.background}>
                 {asset && (asset.mimeType === 'video/quicktime' || asset.mimeType === 'video/mp4') ?
-                    <video key={router.asPath} className={styles.video} width="100%" height="auto" autoPlay loop muted playsInline={true} preload="true">
+                    <video key={router.asPath} className={styles.video} width="100%" height="auto" autoPlay loop muted playsInline={true} preload="auto">
+                        <source src={asset.url} type="video/mp4"/>
                         <source src={asset.url} type="video/quicktime"/>
                         Your browser does not support the video tag.
                     </video>
