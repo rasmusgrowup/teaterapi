@@ -14,10 +14,6 @@
   width: 50%;
 }
 
-.textColumn {
-  padding-right: var(--section-padding);
-}
-
 .title {
   margin-top: 0;
 }
@@ -33,10 +29,18 @@
 
 .right {
   flex-direction: row;
+
+  .textColumn {
+    padding-left: var(--section-padding);
+  }
 }
 
 .left {
   flex-direction: row-reverse;
+
+  .textColumn {
+    padding-right: var(--section-padding);
+  }
 }
 
 @media (max-width: $small) {
@@ -48,6 +52,12 @@
   .assetColumn {
     margin: var(--section-padding) auto;
     width: 100%;
+  }
+
+  .left .textColumn,
+  .right .textColumn {
+    padding-right: var(--section-padding);
+    padding-left: 0;
   }
 
   .asset {

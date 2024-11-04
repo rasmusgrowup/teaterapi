@@ -61,7 +61,9 @@ export default function Menu({ menu }) {
 
                                             return (
                                                 <li key={idx}
-                                                    className={`${styles.dropdownItem} ${isActive ? styles.active : ''}`}>
+                                                    className={`${styles.dropdownItem} ${isActive ? styles.active : ''}`}
+                                                    onClick={() => [setActiveDropdown(null), setMenuOpen(false)]}
+                                                >
                                                     <Link href={href}>
                                                         {page.title}
                                                     </Link>
