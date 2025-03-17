@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 import styles from '../styles/menu.module.scss';
 import {useState} from "react";
 
-export default function Menu({ menu }) {
+import { FaInstagram, FaFacebook } from "react-icons/fa";
+
+export default function Menu({menu}) {
     const router = useRouter();
     const menuItems = menu?.menuItem || [];
     const downChevron = '\u25BC';
@@ -32,7 +34,8 @@ export default function Menu({ menu }) {
                     </Link>
                 </div>
                 <nav className={styles.navigation}>
-                    <div className={`${styles.mobileMenuToggle} ${menuOpen ? styles.closeIcon : ''}`} onClick={toggleMenu}>
+                    <div className={`${styles.mobileMenuToggle} ${menuOpen ? styles.closeIcon : ''}`}
+                         onClick={toggleMenu}>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -84,8 +87,24 @@ export default function Menu({ menu }) {
                                 )
                             );
                         })}
+                        <div className={styles.mobileIcons}>
+                            <Link href="https://www.instagram.com/teaterapi.dk/" passHref={true}>
+                                <a style={{marginRight: '1rem'}}><FaInstagram/></a>
+                            </Link>
+                            <Link href="https://www.facebook.com/profile.php?id=61568647934048" passHref={true}>
+                                <a><FaFacebook/></a>
+                            </Link>
+                        </div>
                     </ul>
                 </nav>
+                <div className={styles.icons}>
+                    <Link href="https://www.instagram.com/teaterapi.dk/" passHref={true}>
+                        <a style={{marginRight: '1rem'}}><FaInstagram/></a>
+                    </Link>
+                    <Link href="https://www.facebook.com/profile.php?id=61568647934048" passHref={true}>
+                        <a><FaFacebook/></a>
+                    </Link>
+                </div>
             </div>
         </div>
     );

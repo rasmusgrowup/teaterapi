@@ -158,3 +158,20 @@
     transform: rotate(45deg);
   }
 }
+
+.icons {
+  font-size: 1.4rem;
+
+  @media (max-width: $small) {
+    display: none;
+  }
+}
+
+.mobileIcons {
+  font-size: 1.66rem;
+  margin-top: 1.66rem;
+
+  @media (min-width: $small) {
+    display: none;
+  }
+}
