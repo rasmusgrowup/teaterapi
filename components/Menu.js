@@ -99,10 +99,10 @@ export default function Menu({menu}) {
                 </nav>
                 <div className={styles.icons}>
                     <Link href="https://www.instagram.com/teaterapi.dk/" passHref={true}>
-                        <a style={{marginRight: '1rem'}}><FaInstagram/></a>
+                        <a style={{marginRight: '1rem'}} target={"_blank"}><FaInstagram/></a>
                     </Link>
                     <Link href="https://www.facebook.com/profile.php?id=61568647934048" passHref={true}>
-                        <a><FaFacebook/></a>
+                        <a target={"_blank"}><FaFacebook/></a>
                     </Link>
                 </div>
             </div>
